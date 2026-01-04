@@ -1,0 +1,22 @@
+name: unlikeother-sites
+
+services:
+  - name: main-web
+    type: static
+    source_dir: Web
+    build_command: npm install && npm run build
+    output_dir: dist
+    routes:
+      - path: /
+    domains:
+      - domain: www.unlikeother.ai
+        type: PRIMARY
+
+  - name: mermaid
+    type: static
+    source_dir: Mermaid
+    routes:
+      - path: /
+    domains:
+      - domain: mermaid.unlikeother.ai
+        type: PRIMARY
