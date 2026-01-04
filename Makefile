@@ -1,8 +1,10 @@
 DOCTL ?= doctl
 SPEC ?= app.yaml
 SPEC_STAGING ?= app.staging.yaml
-APP_ID ?= <set-app-id>
+APP_ID ?= 836e1aa9-c598-47c9-b9a1-906f6c0fcdb3
 APP_ID_STAGING ?= <set-staging-app-id>
+VITE_PORT ?= 5173
+VITE_HOST ?= localhost
 
 ifeq ($(firstword $(MAKECMDGOALS)),read)
 READ_EXTRA := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
@@ -24,10 +26,37 @@ DEPLOY_SPEC_FILE := $(if $(filter staging,$(DEPLOY_ENVIRONMENT)),$(SPEC_STAGING)
 DEPLOY_APP_ID := $(if $(filter staging,$(DEPLOY_ENVIRONMENT)),$(APP_ID_STAGING),$(APP_ID))
 endif
 
-.PHONY: read deploy staging
+.PHONY: read deploy staging install launch
 
 staging:
 	@:
+
+install:
+	@npm --prefix Web install
+
+launch: install
+	@npm --prefix Web run build
+	@echo "Starting Vite dev server on $(VITE_HOST):$(VITE_PORT)..."
+	@npm --prefix Web run dev -- --host --port $(VITE_PORT) & \
+	server_pid=$$!; \
+	retries=60; \
+	while [ $$retries -gt 0 ]; do \
+		if curl -sSf "http://$(VITE_HOST):$(VITE_PORT)" >/dev/null 2>&1; then \
+			break; \
+		fi; \
+		retries=$$((retries - 1)); \
+		sleep 0.2; \
+	done; \
+	if command -v open >/dev/null 2>&1; then \
+		open "http://$(VITE_HOST):$(VITE_PORT)"; \
+	elif command -v xdg-open >/dev/null 2>&1; then \
+		xdg-open "http://$(VITE_HOST):$(VITE_PORT)"; \
+	elif command -v start >/dev/null 2>&1; then \
+		start "http://$(VITE_HOST):$(VITE_PORT)"; \
+	else \
+		echo "Open http://$(VITE_HOST):$(VITE_PORT) in your browser."; \
+	fi; \
+	wait $$server_pid
 
 read:
 	@if ! command -v $(DOCTL) >/dev/null 2>&1; then \

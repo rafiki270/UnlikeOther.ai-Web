@@ -3,7 +3,6 @@
 ## Source Of Truth
 
 - Deployment and routing: `app.yaml`.
-- Mermaid auth and access notes: `Mermaid/AUTH.md`.
 - Web UI guidelines (when populated): `Web/guidelines/Guidelines.md`.
 
 ## Before You Start
@@ -15,14 +14,10 @@
 ## Project Layout
 
 - `Web/`: Vite + React static site. Build output is `Web/dist/`.
-- `Mermaid/`: static Mermaid diagram projects (each client is a subfolder).
-- `Mermaid/nginx/`: optional Nginx basic-auth config for Mermaid.
 - `app.yaml`: DigitalOcean App Platform config.
 
 ## UI + Auth Conventions
 
-- Mermaid is file-based only; enforce auth at the edge (Cloudflare Access or
-  Nginx basic auth) and do not add application-level login.
 - Keep the main web placeholder lightweight; it will be replaced by a template.
 
 ## Working Style
@@ -34,6 +29,8 @@
 - Stay focused on the current request; ask before changing unrelated files or
   content.
 - Tooling available: Mermaid CLI (`mmdc`) can be used where required.
+- Always commit all changes and push after each turn.
+- Deploy if there was a change to the code.
 - No destructive commands unless explicitly requested (for example, `git reset`,
   `git clean`, `git restore`, `rm`).
 - Worktree safety: never discard or revert uncommitted changes, especially ones
@@ -42,8 +39,7 @@
 - Third-party libraries: use only the latest stable release unless no stable
   release exists.
 - Code files must not exceed 500 lines unless explicitly requested.
-- Commits: only create commits when asked; never create empty commits; push when
-  explicitly requested.
+- Commits: always create commits; never create empty commits; always push.
 
 ## Build + Launch
 
@@ -52,5 +48,5 @@
 
 ## Documentation Discipline
 
-- Update `Mermaid/AUTH.md` when auth or access paths change.
 - Update `README.md` if setup or run steps change (if/when added).
+- Always keep documentation up to date (especially `Docs/`).

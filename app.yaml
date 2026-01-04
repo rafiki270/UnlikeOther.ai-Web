@@ -1,22 +1,34 @@
-name: unlikeother-sites
+name: king-prawn-app
+region: lon
 
-services:
-  - name: main-web
-    type: static
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+
+features:
+  - buildpack-stack=ubuntu-22
+
+domains:
+  - domain: www.unlikeotherai.com
+    type: PRIMARY
+  - domain: unlikeotherai.com
+    type: ALIAS
+
+ingress:
+  rules:
+    - component:
+        name: unlikeother-ai-web-web
+      match:
+        path:
+          prefix: /
+
+static_sites:
+  - name: unlikeother-ai-web-web
+    environment_slug: node-js
     source_dir: Web
     build_command: npm install && npm run build
     output_dir: dist
-    routes:
-      - path: /
-    domains:
-      - domain: www.unlikeother.ai
-        type: PRIMARY
-
-  - name: mermaid
-    type: static
-    source_dir: Mermaid
-    routes:
-      - path: /
-    domains:
-      - domain: mermaid.unlikeother.ai
-        type: PRIMARY
+    github:
+      repo: rafiki270/UnlikeOther.ai-Web
+      branch: main
+      deploy_on_push: true
