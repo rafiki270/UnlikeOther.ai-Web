@@ -229,6 +229,19 @@
     transform: translateY(-2px);
   }
 
+  .logo-image {
+    height: clamp(36px, 4vw, 56px);
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+  }
+
+  .logo-text {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
   .doodle-layer {
     position: absolute;
     inset: 0;

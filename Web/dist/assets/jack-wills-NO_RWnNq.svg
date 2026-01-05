@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" ver="146092">
+  <head>
+    <meta charset="utf-8" />
+    <title>Frasers</title>
+    <meta name="title" content="Frasers" />
+    <meta
+      name="description"
+      content="Retail, rethought. Frasers is a fearless collection of the world’s most iconic sporting, luxury and retail brands."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frasers.group/" />
+    <meta property="og:title" content="Frasers" />
+    <meta
+      property="og:description"
+      content="Retail, rethought. Frasers is a fearless collection of the world’s most iconic sporting, luxury and retail brands."
+    />
+    <meta property="og:image" content="./frasers-sharing-preview.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://frasers.group/" />
+    <meta property="twitter:title" content="Frasers" />
+    <meta
+      property="twitter:description"
+      content="Retail, rethought. Frasers is a fearless collection of the world’s most iconic sporting, luxury and retail brands."
+    />
+    <meta property="twitter:image" content="./frasers-sharing-preview.png" />
+
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon-16x16.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="theme-color" content="#000000" />
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
+    </script>
+
+    <!-- Hotjar Tracking Code for https://frasers.group -->
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2830595, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        r.setAttribute('type', 'text/plain');
+        r.setAttribute('class', 'optanon-category-C0002-C0003-C0004');
+        a.appendChild(r);
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+    <!-- Clarity script -->
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = 'https://www.clarity.ms/tag/' + i;
+        t.setAttribute('type', 'text/plain');
+        t.setAttribute('class', 'optanon-category-C0002-C0003-C0004');
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', 'egtzp7iioo');
+    </script>
+    <script type="text/javascript" src="/assets/scripts.209983432.js"></script>
+  <link rel="stylesheet" href="styles.cab0e0d0d6b1a2cdc8d3.css"></head>
+  <body>
+    <app-root></app-root>
+  <script src="runtime.494b3d73c8632b7e7c32.js" defer></script><script src="polyfills-es5.ad84f1b51cab8767b382.js" nomodule defer></script><script src="polyfills.ac2ca4a6ad325743f09b.js" defer></script><script src="main.7404074d9e1d7d48b726.js" defer></script></body>
+</html>
