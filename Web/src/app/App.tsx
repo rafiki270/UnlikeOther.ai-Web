@@ -265,7 +265,7 @@ export default function App() {
 
         {/* AI Where It Makes Sense */}
         <div className="mb-20 md:mb-32">
-          <div className="flex items-start gap-4 mb-6">
+          <div className="flex items-start gap-4 mb-6 justify-end text-right">
             <svg 
               className="w-5 h-5 mt-1 flex-shrink-0 opacity-70"
               viewBox="0 0 24 24"
@@ -280,7 +280,7 @@ export default function App() {
             </h3>
           </div>
           
-          <div className="bg-[#242021] rounded-2xl p-8 md:p-12 max-w-3xl">
+          <div className="bg-[#242021] rounded-2xl p-8 md:p-12 max-w-3xl ml-auto text-right">
             <div className="space-y-4 text-[#CFC9CB] text-lg">
               <p>We don't use AI to generate disposable code.</p>
               <p className="pt-4">We use it to:</p>
