@@ -2,6 +2,34 @@ import { useState } from 'react';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const logoPalette = ['#F3A6C8', '#6FB7FF', '#B9A8FF', '#C7D400', '#FFB347', '#7EE0C9'];
+  const logoItems = [
+    { name: 'Apple' },
+    { name: 'BMW' },
+    { name: 'Ford' },
+    { name: 'McNeil Healthcare', title: 'McNeil Healthcare (Lucozade owner)' },
+    { name: 'Warner Music' },
+    { name: 'Audi' },
+    { name: 'IKEA' },
+    { name: 'BP' },
+    { name: 'Deloitte' },
+    { name: 'Carphone Warehouse' },
+    { name: 'Mercedes' },
+    { name: 'Renault' },
+    { name: 'The Sun' },
+    { name: 'Toyota' },
+    { name: 'Skoda' },
+    { name: 'Visa' },
+    { name: 'Chevrolet' },
+    { name: 'Jack Wills' },
+    { name: 'JWT' },
+    { name: 'Iconmobile' },
+    { name: 'Somo' },
+    { name: 'UBM' },
+    { name: 'Incisive Media' },
+    { name: 'Ceska Televize' },
+    { name: 'Meteopress' },
+  ];
 
   return (
     <div className="min-h-screen bg-[#1E1B1C] text-white overflow-x-hidden">
@@ -116,8 +144,8 @@ export default function App() {
 
       {/* Experience + Trust Section */}
       <section id="about" className="container mx-auto px-6 py-20 md:py-32 max-w-[1280px]">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr]">
-          <div className="space-y-6">
+        <div className="space-y-10">
+          <div className="max-w-3xl space-y-6">
             <div className="uppercase tracking-widest text-[#9A9496] text-xs md:text-sm">
               Experience you can trust
             </div>
@@ -137,54 +165,33 @@ export default function App() {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-[#2B2236] p-5">
-              <div className="uppercase tracking-widest text-xs text-[#CFC9CB] mb-3">
-                Brand experience
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-sm text-white/90">
-                <span>Apple</span>
-                <span>BMW</span>
-                <span>Audi</span>
-                <span>Ford</span>
-                <span>IKEA</span>
-                <span>Mercedes</span>
-                <span>Renault</span>
-                <span>Toyota</span>
-                <span>Skoda</span>
-                <span>Chevrolet</span>
-                <span>Visa</span>
-                <span>BP</span>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-[#1F2B36] p-5">
-              <div className="uppercase tracking-widest text-xs text-[#CFC9CB] mb-3">
-                Retail, media, health
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-sm text-white/90">
-                <span>Warner Music</span>
-                <span>The Sun</span>
-                <span>Jack Wills</span>
-                <span>Carphone Warehouse</span>
-                <span>McNeil Healthcare</span>
-                <span>Lucozade (owner)</span>
-                <span>Deloitte</span>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-[#2B2A1E] p-5 sm:col-span-2">
-              <div className="uppercase tracking-widest text-xs text-[#CFC9CB] mb-3">
-                Agencies & publishers
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-white/90">
-                <span>JWT</span>
-                <span>Iconmobile</span>
-                <span>Somo</span>
-                <span>UBM</span>
-                <span>Incisive Media</span>
-                <span>Ceska Televize</span>
-                <span>Meteopress</span>
+          <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+            <div className="overflow-hidden border-y border-white/10 bg-[#1A1718]/60 py-6">
+              <div className="logo-marquee">
+                <div className="logo-track">
+                  {logoItems.map((item, index) => (
+                    <div
+                      key={`logo-${item.name}`}
+                      className="logo-item"
+                      title={item.title ?? item.name}
+                      style={{ color: logoPalette[index % logoPalette.length] }}
+                    >
+                      {item.name}
+                    </div>
+                  ))}
+                </div>
+                <div className="logo-track" aria-hidden="true">
+                  {logoItems.map((item, index) => (
+                    <div
+                      key={`logo-dup-${item.name}`}
+                      className="logo-item"
+                      title={item.title ?? item.name}
+                      style={{ color: logoPalette[index % logoPalette.length] }}
+                    >
+                      {item.name}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
