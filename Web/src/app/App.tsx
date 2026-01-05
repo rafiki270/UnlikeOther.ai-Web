@@ -32,9 +32,22 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#1E1B1C] text-white overflow-x-hidden">
-      {/* Navigation */}
-      <nav className="container mx-auto px-6 py-8 max-w-[1280px]">
+    <div className="min-h-screen bg-[#1E1B1C] text-white overflow-x-hidden relative">
+      <div className="doodle-layer" aria-hidden="true">
+        <span className="doodle doodle-star" />
+        <span className="doodle doodle-fox" />
+        <span className="doodle doodle-skier" />
+        <span className="doodle doodle-bulb" />
+        <span className="doodle doodle-sun" />
+        <span className="doodle doodle-megaphone" />
+        <span className="doodle doodle-laptop" />
+        <span className="doodle doodle-chat" />
+        <span className="doodle doodle-rocket" />
+      </div>
+
+      <div className="relative z-10">
+        {/* Navigation */}
+        <nav className="container mx-auto px-6 py-8 max-w-[1280px]">
         <div className="flex items-center justify-between">
           <div className="tracking-tight" style={{ fontWeight: 700 }}>
             UnlikeOther.ai
@@ -472,6 +485,7 @@ export default function App() {
           <div>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland & Czech Republic 🇨🇿</div>
         </div>
       </footer>
+    </div>
     </div>
   );
 }
