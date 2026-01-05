@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import fordLogo from '../assets/logos/ford.svg';
+import appleLogo from '../assets/logos/apple.svg';
 import jackWillsLogo from '../assets/logos/jack-wills.svg';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const logoItems = [
-    { name: 'Apple', src: 'https://developer.apple.com/assets/elements/icons/app-store/app-store.svg' },
-    { name: 'BMW', src: 'https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/bmw/BMW_Logo.svg' },
-    { name: 'Ford', src: fordLogo },
+    { name: 'Apple', src: appleLogo },
+    { name: 'BMW', src: 'https://www.bmwgroup.com/etc.clientlibs/grpw-web/clientlibs/grpw-base/resources/images/logo/BMW_dark.svg' },
+    { name: 'Ford', src: 'https://brand.ford.com/content/dam/brand_ford/brand-assets/logos/ford-logo.svg' },
     {
       name: 'McNeil Healthcare',
       title: 'McNeil Healthcare (Lucozade owner)',
@@ -77,6 +77,15 @@ export default function App() {
         <span className="doodle doodle-laptop" />
         <span className="doodle doodle-chat" />
         <span className="doodle doodle-rocket" />
+        <span className="doodle doodle-alt doodle-alt-1" />
+        <span className="doodle doodle-alt doodle-alt-2" />
+        <span className="doodle doodle-alt doodle-alt-3" />
+        <span className="doodle doodle-alt doodle-alt-4" />
+        <span className="doodle doodle-alt doodle-alt-5" />
+        <span className="doodle doodle-alt doodle-alt-6" />
+        <span className="doodle doodle-alt doodle-alt-7" />
+        <span className="doodle doodle-alt doodle-alt-8" />
+        <span className="doodle doodle-alt doodle-alt-9" />
       </div>
 
       <div className="relative z-10">
