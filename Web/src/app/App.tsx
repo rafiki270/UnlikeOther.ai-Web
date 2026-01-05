@@ -114,6 +114,104 @@ export default function App() {
         </div>
       </section>
 
+      {/* Experience + Trust Section */}
+      <section id="about" className="container mx-auto px-6 py-20 md:py-32 max-w-[1280px]">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr]">
+          <div className="space-y-6">
+            <div className="uppercase tracking-widest text-[#9A9496] text-xs md:text-sm">
+              Experience you can trust
+            </div>
+            <h2
+              className="text-3xl md:text-5xl tracking-tight"
+              style={{ fontWeight: 800, letterSpacing: '-0.02em' }}
+            >
+              Built by people who have shipped for <span className="text-[#F3A6C8]">global brands</span>.
+            </h2>
+            <p className="text-[#CFC9CB] text-lg leading-relaxed">
+              Our team has led and delivered products across automotive, retail, media, health,
+              and enterprise — the kind of environments where quality and reliability are non‑negotiable.
+            </p>
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-[#242021] px-4 py-2 text-sm text-[#CFC9CB]">
+              <span className="text-white" style={{ fontWeight: 700 }}>EU & UK based.</span>
+              We operate under EU & UK law, including GDPR.
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-[#2B2236] p-5">
+              <div className="uppercase tracking-widest text-xs text-[#CFC9CB] mb-3">
+                Brand experience
+              </div>
+              <div className="grid grid-cols-2 gap-2 text-sm text-white/90">
+                <span>Apple</span>
+                <span>BMW</span>
+                <span>Audi</span>
+                <span>Ford</span>
+                <span>IKEA</span>
+                <span>Mercedes</span>
+                <span>Renault</span>
+                <span>Toyota</span>
+                <span>Skoda</span>
+                <span>Chevrolet</span>
+                <span>Visa</span>
+                <span>BP</span>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-[#1F2B36] p-5">
+              <div className="uppercase tracking-widest text-xs text-[#CFC9CB] mb-3">
+                Retail, media, health
+              </div>
+              <div className="grid grid-cols-2 gap-2 text-sm text-white/90">
+                <span>Warner Music</span>
+                <span>The Sun</span>
+                <span>Jack Wills</span>
+                <span>Carphone Warehouse</span>
+                <span>McNeil Healthcare</span>
+                <span>Lucozade (owner)</span>
+                <span>Deloitte</span>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-[#2B2A1E] p-5 sm:col-span-2">
+              <div className="uppercase tracking-widest text-xs text-[#CFC9CB] mb-3">
+                Agencies & publishers
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-white/90">
+                <span>JWT</span>
+                <span>Iconmobile</span>
+                <span>Somo</span>
+                <span>UBM</span>
+                <span>Incisive Media</span>
+                <span>Ceska Televize</span>
+                <span>Meteopress</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          <div className="rounded-2xl border border-white/10 bg-[#2A1F2C] p-6">
+            <p className="text-white text-lg leading-relaxed">
+              “They delivered at startup speed without cutting corners on architecture or quality.”
+            </p>
+            <p className="mt-4 text-[#CFC9CB] text-sm">Product Lead, Automotive</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-[#1E2A2B] p-6">
+            <p className="text-white text-lg leading-relaxed">
+              “Clear thinking, fast iteration, and no drama. Exactly what we needed.”
+            </p>
+            <p className="mt-4 text-[#CFC9CB] text-sm">Head of Digital, Retail</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-[#2A251E] p-6">
+            <p className="text-white text-lg leading-relaxed">
+              “Handled regulated workflows carefully and still shipped on time.”
+            </p>
+            <p className="mt-4 text-[#CFC9CB] text-sm">Ops Director, Healthcare</p>
+          </div>
+        </div>
+      </section>
+
       {/* What Makes Us Unlike Other Section */}
       <section className="container mx-auto px-6 py-20 md:py-32 max-w-[1280px]">
         <h2 
