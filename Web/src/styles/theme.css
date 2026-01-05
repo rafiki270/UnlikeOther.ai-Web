@@ -270,69 +270,80 @@
     background-repeat: no-repeat;
     opacity: 0.85;
     filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+    transform: translateY(var(--doodle-jitter, 0px));
+    --edge-offset: clamp(-110px, -7vw, -48px);
   }
 
   .doodle-star {
     background-position: 0% 0%;
     top: 4rem;
-    left: -2vw;
+    left: var(--edge-offset);
     --doodle-size: clamp(120px, 12vw, 190px);
+    --doodle-jitter: -10px;
   }
 
   .doodle-fox {
     background-position: 50% 0%;
-    top: 8rem;
-    right: -1vw;
-    --doodle-size: clamp(100px, 11vw, 170px);
+    top: 14rem;
+    right: var(--edge-offset);
+    --doodle-size: clamp(110px, 11vw, 180px);
+    --doodle-jitter: 8px;
   }
 
   .doodle-skier {
     background-position: 100% 0%;
-    top: 22rem;
-    right: 10vw;
+    top: 24rem;
+    left: var(--edge-offset);
     --doodle-size: clamp(110px, 12vw, 180px);
+    --doodle-jitter: -6px;
   }
 
   .doodle-bulb {
     background-position: 0% 50%;
-    top: 52rem;
-    left: -4vw;
-    --doodle-size: clamp(130px, 14vw, 210px);
+    top: 34rem;
+    right: var(--edge-offset);
+    --doodle-size: clamp(120px, 13vw, 200px);
+    --doodle-jitter: 12px;
   }
 
   .doodle-sun {
     background-position: 50% 50%;
-    top: 68rem;
-    right: -6vw;
-    --doodle-size: clamp(150px, 16vw, 230px);
+    top: 44rem;
+    left: var(--edge-offset);
+    --doodle-size: clamp(150px, 16vw, 240px);
+    --doodle-jitter: -14px;
   }
 
   .doodle-megaphone {
     background-position: 100% 50%;
-    top: 90rem;
-    left: 52vw;
-    --doodle-size: clamp(140px, 15vw, 220px);
+    top: 54rem;
+    right: var(--edge-offset);
+    --doodle-size: clamp(130px, 14vw, 210px);
+    --doodle-jitter: 6px;
   }
 
   .doodle-laptop {
     background-position: 0% 100%;
-    bottom: 30rem;
-    left: -4vw;
-    --doodle-size: clamp(100px, 11vw, 170px);
+    top: 64rem;
+    left: var(--edge-offset);
+    --doodle-size: clamp(110px, 12vw, 180px);
+    --doodle-jitter: -8px;
   }
 
   .doodle-chat {
     background-position: 50% 100%;
-    bottom: 22rem;
-    right: 12vw;
-    --doodle-size: clamp(100px, 11vw, 170px);
+    top: 74rem;
+    right: var(--edge-offset);
+    --doodle-size: clamp(110px, 12vw, 180px);
+    --doodle-jitter: 10px;
   }
 
   .doodle-rocket {
     background-position: 100% 100%;
-    bottom: 4rem;
-    right: -3vw;
-    --doodle-size: clamp(130px, 14vw, 210px);
+    top: 84rem;
+    left: var(--edge-offset);
+    --doodle-size: clamp(140px, 15vw, 220px);
+    --doodle-jitter: -12px;
   }
 
   .doodle-alt {
@@ -341,65 +352,74 @@
 
   .doodle-alt-1 {
     background-position: 0% 0%;
-    top: 18rem;
-    left: 18vw;
+    top: 94rem;
+    right: var(--edge-offset);
     --doodle-size: clamp(110px, 12vw, 180px);
+    --doodle-jitter: 6px;
   }
 
   .doodle-alt-2 {
     background-position: 50% 0%;
-    top: 34rem;
-    right: -5vw;
-    --doodle-size: clamp(140px, 15vw, 220px);
+    top: 104rem;
+    left: var(--edge-offset);
+    --doodle-size: clamp(130px, 14vw, 210px);
+    --doodle-jitter: -10px;
   }
 
   .doodle-alt-3 {
     background-position: 100% 0%;
-    top: 46rem;
-    left: -6vw;
+    top: 114rem;
+    right: var(--edge-offset);
     --doodle-size: clamp(120px, 13vw, 190px);
+    --doodle-jitter: 14px;
   }
 
   .doodle-alt-4 {
     background-position: 0% 50%;
-    top: 76rem;
-    right: 24vw;
-    --doodle-size: clamp(110px, 12vw, 180px);
+    top: 124rem;
+    left: var(--edge-offset);
+    --doodle-size: clamp(120px, 13vw, 190px);
+    --doodle-jitter: -6px;
   }
 
   .doodle-alt-5 {
     background-position: 50% 50%;
-    top: 106rem;
-    left: 8vw;
-    --doodle-size: clamp(160px, 17vw, 240px);
+    top: 134rem;
+    right: var(--edge-offset);
+    --doodle-size: clamp(160px, 17vw, 250px);
+    --doodle-jitter: 10px;
   }
 
   .doodle-alt-6 {
     background-position: 100% 50%;
-    top: 122rem;
-    right: -6vw;
+    top: 144rem;
+    left: var(--edge-offset);
     --doodle-size: clamp(130px, 14vw, 210px);
+    --doodle-jitter: -12px;
   }
 
   .doodle-alt-7 {
     background-position: 0% 100%;
-    bottom: 46rem;
-    left: 24vw;
-    --doodle-size: clamp(110px, 12vw, 180px);
+    top: 154rem;
+    right: var(--edge-offset);
+    --doodle-size: clamp(120px, 13vw, 190px);
+    --doodle-jitter: 8px;
   }
 
   .doodle-alt-8 {
     background-position: 50% 100%;
-    bottom: 18rem;
-    right: 28vw;
-    --doodle-size: clamp(130px, 14vw, 200px);
+    top: 164rem;
+    left: var(--edge-offset);
+    --doodle-size: clamp(130px, 14vw, 210px);
+    --doodle-jitter: -8px;
   }
 
   .doodle-alt-9 {
     background-position: 100% 100%;
-    bottom: -4rem;
-    left: 44vw;
+    top: 174rem;
+    right: var(--edge-offset);
     --doodle-size: clamp(120px, 13vw, 190px);
+    --doodle-jitter: 12px;
   }
 }
 
