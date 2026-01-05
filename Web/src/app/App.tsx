@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import appleLogo from '../assets/logos/apple.svg';
 import jackWillsLogo from '../assets/logos/jack-wills.svg';
 
@@ -35,6 +35,68 @@ export default function App() {
     { name: 'Ceska Televize', src: 'https://img.ceskatelevize.cz/logo/ct-logo.svg' },
     { name: 'Meteopress', src: 'https://media.licdn.com/dms/image/C4D0BAQHmeteopress/company-logo_200_200' },
   ];
+
+  useEffect(() => {
+    const layer = document.querySelector<HTMLElement>('.doodle-layer');
+    if (!layer) {
+      return;
+    }
+
+    const layoutDoodles = () => {
+      const doodles = Array.from(layer.querySelectorAll<HTMLElement>('.doodle'));
+      if (!doodles.length) {
+        return;
+      }
+
+      const totalHeight = Math.max(layer.parentElement?.scrollHeight ?? 0, window.innerHeight);
+      const step = totalHeight / (doodles.length + 1);
+
+      doodles.forEach((doodle, index) => {
+        const size = Math.round(110 + Math.random() * 140);
+        const hiddenRatio = 0.1 + Math.random() * 0.08;
+        const offset = Math.round(size * hiddenRatio);
+        const verticalJitter = Math.round((Math.random() - 0.5) * step * 0.2);
+        const nudge = Math.round((Math.random() - 0.5) * 18);
+        const side = index % 2 === 0 ? 'left' : 'right';
+
+        let top = Math.round(step * (index + 1) + verticalJitter);
+        top = Math.max(0, Math.min(totalHeight - size, top));
+
+        doodle.style.top = `${top}px`;
+        doodle.style.left = '';
+        doodle.style.right = '';
+        doodle.style.setProperty('--doodle-size', `${size}px`);
+        doodle.style.setProperty('--doodle-jitter', `${nudge}px`);
+        doodle.style.setProperty('--doodle-enter', side === 'left' ? '-40px' : '40px');
+
+        if (side === 'left') {
+          doodle.style.left = `${-offset}px`;
+        } else {
+          doodle.style.right = `${-offset}px`;
+        }
+
+        doodle.classList.remove('is-ready');
+      });
+
+      requestAnimationFrame(() => {
+        doodles.forEach((doodle, idx) => {
+          doodle.style.transitionDelay = `${Math.min(idx * 30, 240)}ms`;
+          doodle.classList.add('is-ready');
+        });
+      });
+    };
+
+    layoutDoodles();
+
+    let resizeTimeout: number | undefined;
+    const handleResize = () => {
+      window.clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(layoutDoodles, 120);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const LogoTile = ({
     name,
