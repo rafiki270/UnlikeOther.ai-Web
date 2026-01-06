@@ -381,6 +381,10 @@
 }
 
 @media (max-width: 768px) {
+  .doodle-layer {
+    display: none;
+  }
+
   .doodle {
     opacity: 0.7;
   }
