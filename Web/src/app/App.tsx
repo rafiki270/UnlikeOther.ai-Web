@@ -155,7 +155,7 @@ export default function App() {
         <nav className="container mx-auto px-6 py-8 max-w-[1280px]">
         <div className="flex items-center justify-between">
           <div className="tracking-tight" style={{ fontWeight: 700 }}>
-            UnlikeOther.ai
+            UnlikeOther AI
           </div>
           
           {/* Desktop Menu */}
@@ -560,11 +560,11 @@ export default function App() {
             Let's build something that <span className="text-[#F3A6C8]">actually lasts.</span>
           </h2>
           <a 
-            href="mailto:hello@unlikeother.ai"
+            href="mailto:hello@unlikeotherai.com"
             className="inline-block px-8 py-4 bg-[#F3A6C8] text-[#1E1B1C] rounded-full hover:brightness-110 transition-all text-lg"
             style={{ fontWeight: 700 }}
           >
-            hello@unlikeother.ai
+            hello@unlikeotherai.com
           </a>
         </div>
       </section>
@@ -572,7 +572,7 @@ export default function App() {
       {/* Footer */}
       <footer className="container mx-auto px-6 py-12 max-w-[1280px] border-t border-white/10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-[#9A9496]">
-          <div style={{ fontWeight: 700 }}>UnlikeOther.ai © 2026</div>
+          <div style={{ fontWeight: 700 }}>UnlikeOther AI © 2026</div>
           <div>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland & Czech Republic 🇨🇿</div>
         </div>
       </footer>
