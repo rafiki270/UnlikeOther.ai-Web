@@ -4,7 +4,7 @@ import { Defs } from './components/icons'
 import { Footer, Nav } from './sections/Chrome'
 import { Contact } from './sections/Contact'
 import { Hero, Marquee } from './sections/Hero'
-import { FeaturedCarousel, Projects, Services } from './sections/Work'
+import { FeaturedCarousel, Services } from './sections/Work'
 
 export default function App() {
   const burst = useConfetti()
@@ -24,7 +24,6 @@ export default function App() {
       <Marquee />
       <Services />
       <FeaturedCarousel />
-      <Projects />
       <Contact />
       <Footer />
     </>

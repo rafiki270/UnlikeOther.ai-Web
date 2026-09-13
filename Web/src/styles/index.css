@@ -154,6 +154,9 @@ body::before {
 .feat-card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px }
 .feat-card .tags span { font-family: var(--f-mono); font-size: 11px; padding: 4px 10px; border: 1.5px solid var(--ink);
   border-radius: 999px; background: var(--paper) }
+.feat-link { display: inline-flex; margin-top: 12px; font-family: var(--f-mono); font-size: 12px; font-weight: 700;
+  color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--c1) }
+.feat-link:hover { color: var(--c1) }
 .carousel-controls { position: absolute; right: 0; top: -72px; display: flex; gap: 10px }
 .car-btn { width: 48px; height: 48px; border-radius: 50%; border: 2.5px solid var(--ink); background: var(--paper);
   box-shadow: 3px 3px 0 var(--ink); cursor: pointer; display: grid; place-items: center;

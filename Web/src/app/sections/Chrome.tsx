@@ -39,7 +39,7 @@ export function Footer() {
           <span className="hand" style={{ fontSize: 26, color: 'var(--c2)' }}>made by hand, mostly.</span>
           <Smiley color="var(--c1)" size={36} rotation={8} />
         </div>
-        © {new Date().getFullYear()} UnlikeOther studio · ★ try the Konami code ↑↑↓↓←→←→BA
+        © {new Date().getFullYear()} UnlikeOtherAI studio · ★ try the Konami code ↑↑↓↓←→←→BA
       </div>
     </footer>
   )

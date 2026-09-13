@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Arrow, Star } from '../components/icons'
-import { CONTACT_EMAIL } from '../data'
+import { CONTACT_EMAIL, GITHUB_URL } from '../data'
 
 const INTEREST_OPTS = ['Mobile app', 'SaaS', 'AI feature', 'Security audit', 'Brand & identity', 'A vibe check']
 const BUDGET_OPTS = ['< £25k', '£25–75k', '£75–150k', '£150k+']
@@ -47,7 +47,7 @@ export function Contact() {
       <div className="container">
         <div className="contact-grid">
           <div>
-            <span className="eyebrow mono" style={{ color: 'var(--c2)' }}>§ 05 · start a project</span>
+            <span className="eyebrow mono" style={{ color: 'var(--c2)' }}>§ 04 · start a project</span>
             <div className="sub">drop us a line — we&apos;re kind</div>
             <h2>
               got something <em className="serif-em" style={{ color: 'var(--c1)' }}>strange</em>
@@ -59,8 +59,8 @@ export function Contact() {
             </p>
             <ul>
               <li><span className="bullet">@</span> <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
-              <li><span className="bullet" style={{ background: 'var(--c1)' }}>↗</span> calendly.com/unlikeother</li>
-              <li><span className="bullet" style={{ background: 'var(--c5)' }}>♥</span> London &amp; Lisbon, mostly.</li>
+              <li><span className="bullet" style={{ background: 'var(--c1)' }}>↗</span> <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">github.com/UnlikeOtherAI</a></li>
+              <li><span className="bullet" style={{ background: 'var(--c5)' }}>♥</span> Scotland &amp; Czech Republic, mostly.</li>
             </ul>
 
             <div style={{ position: 'relative', height: 60, marginTop: 30 }}>

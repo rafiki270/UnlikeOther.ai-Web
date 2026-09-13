@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { MouseEvent as ReactMouseEvent, TouchEvent as ReactTouchEvent } from 'react'
 import { ICONS } from '../components/icons'
 import { AppScreen, PhoneFrame, WebScreen } from '../components/screens'
-import { FEATURED, PROJECTS, SERVICES } from '../data'
+import { FEATURED, SERVICES } from '../data'
 import type { Featured } from '../data'
 
 type AnyPointer = MouseEvent | TouchEvent | ReactMouseEvent | ReactTouchEvent
@@ -63,7 +63,7 @@ export function FeaturedCarousel() {
   const offsetRef = useRef(0)
   offsetRef.current = offset
   const [dragging, setDragging] = useState(false)
-  const drag = useRef({ active: false, startX: 0, startOff: 0, vx: 0, lastX: 0, lastT: 0 })
+  const drag = useRef({ active: false, moved: false, startX: 0, startOff: 0, vx: 0, lastX: 0, lastT: 0 })
   const raf = useRef(0)
 
   // Bounds of the track; `slack` allows a little rubber-banding past the edges.
@@ -76,7 +76,7 @@ export function FeaturedCarousel() {
   const onDown = (e: ReactMouseEvent | ReactTouchEvent) => {
     cancelAnimationFrame(raf.current)
     const p = pointOf(e)
-    drag.current = { active: true, startX: p.clientX, startOff: offsetRef.current, vx: 0, lastX: p.clientX, lastT: performance.now() }
+    drag.current = { active: true, moved: false, startX: p.clientX, startOff: offsetRef.current, vx: 0, lastX: p.clientX, lastT: performance.now() }
     setDragging(true)
   }
 
@@ -89,6 +89,7 @@ export function FeaturedCarousel() {
       d.vx = (p.clientX - d.lastX) / Math.max(1, now - d.lastT)
       d.lastX = p.clientX
       d.lastT = now
+      if (Math.abs(p.clientX - d.startX) > 5) d.moved = true
       setOffset(bound(d.startOff + p.clientX - d.startX, 60))
     }
     const onUp = () => {
@@ -130,12 +131,12 @@ export function FeaturedCarousel() {
         <div className="section-head">
           <div>
             <span className="eyebrow">
-              <span className="mono" style={{ color: 'var(--ink)' }}>§ 03</span> · featured work
+              <span className="mono" style={{ color: 'var(--ink)' }}>§ 03</span> · on the workbench
             </span>
-            <h2>some <em className="serif-em">good</em> ones we shipped lately.</h2>
+            <h2>stuff we&apos;re <em className="serif-em">releasing</em> soon.</h2>
           </div>
           <div className="h-side">
-            ← drag the strip, or use the buttons. there&apos;s 7 in here.
+            ← drag the strip, or use the buttons. there&apos;s {FEATURED.length} in here, some already open source.
           </div>
         </div>
 
@@ -149,7 +150,8 @@ export function FeaturedCarousel() {
 
           <div className="carousel-track" ref={trackRef}
             style={{ transform: `translateX(${offset}px)`, transition: dragging ? 'none' : 'transform .35s cubic-bezier(.2,.9,.2,1)' }}
-            onMouseDown={onDown} onTouchStart={onDown}>
+            onMouseDown={onDown} onTouchStart={onDown}
+            onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation() } }}>
             {FEATURED.map((f, i) => <FeatCard key={f.name} f={f} i={i} />)}
           </div>
         </div>
@@ -165,7 +167,7 @@ function FeatCard({ f, i }: { f: Featured; i: number }) {
       <div className="feat-meta">
         <span className="dot" style={{ background: f.bg }} />
         <span>{f.kind}</span>
-        <span style={{ marginLeft: 'auto' }}>{f.year}</span>
+        <span style={{ marginLeft: 'auto' }}>{f.status}</span>
       </div>
       <h4>{f.name}</h4>
       <div className="tagline">“{f.tag}”</div>
@@ -177,73 +179,11 @@ function FeatCard({ f, i }: { f: Featured; i: number }) {
       <div className="tags">
         {f.tags.map((t) => <span key={t}>{t}</span>)}
       </div>
+      {f.href && (
+        <a className="feat-link" href={f.href} target="_blank" rel="noopener noreferrer" draggable={false}>
+          {f.linkLabel} ↗
+        </a>
+      )}
     </div>
-  )
-}
-
-// ─── Projects grid ───────────────────────────────────────────────────────────
-
-const FILTERS = ['all', 'SaaS', 'iOS', 'Mobile']
-const SPANS = [4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 6, 6]
-
-export function Projects() {
-  const [filter, setFilter] = useState('all')
-  const list = filter === 'all' ? PROJECTS
-    : PROJECTS.filter((p) => p.kind === filter || (filter === 'Mobile' && (p.kind === 'iOS' || p.kind === 'Mobile')))
-
-  return (
-    <section className="projects" id="projects">
-      <div className="container">
-        <div className="section-head">
-          <div>
-            <span className="eyebrow">
-              <span className="mono" style={{ color: 'var(--ink)' }}>§ 04</span> · the whole archive
-            </span>
-            <h2>twelve more, give or take.</h2>
-          </div>
-          <div className="h-side" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', transform: 'none' }}>
-            {FILTERS.map((f) => (
-              <span key={f} role="button" tabIndex={0} className={`pill ${filter === f ? 'on' : ''}`}
-                onClick={() => setFilter(f)} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setFilter(f) }}>
-                {f}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="proj-grid">
-          {list.map((p, i) => {
-            const rot = i % 3 === 0 ? -0.8 : i % 3 === 1 ? 1.0 : -0.4
-            return (
-              <div key={p.name} className="proj-tile" style={{ gridColumn: `span ${SPANS[i % 12]}`, transform: `rotate(${rot}deg)` }}>
-                <div className="proj-thumb">
-                  {p.type === 'phone' ? (
-                    <div style={{ width: '100%', height: '100%', background: p.bg, padding: '20px 14%',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <div style={{ width: '100%', maxWidth: 180, aspectRatio: '9/16', background: '#16140F',
-                        borderRadius: 24, padding: '8px 6px', boxShadow: '4px 4px 0 #16140F' }}>
-                        <div style={{ width: '100%', height: '100%', borderRadius: 18, overflow: 'hidden',
-                          border: '1.5px solid rgba(255,255,255,.1)' }}>
-                          <AppScreen bg={p.bg} accent={p.accent} second={p.second} variant={p.variant} />
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <WebScreen bg={p.bg} accent={p.accent} second={p.second} variant={p.variant} />
-                  )}
-                </div>
-                <div className="proj-info">
-                  <div>
-                    <div className="ttl">{p.name}</div>
-                    <div className="desc">{p.desc}</div>
-                  </div>
-                  <div className="yr">{p.kind} · &apos;{String(p.year).slice(-2)}</div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
   )
 }
