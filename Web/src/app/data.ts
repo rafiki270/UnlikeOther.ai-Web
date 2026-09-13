@@ -21,7 +21,7 @@ export interface Featured {
   name: string
   tag: string
   kind: string
-  status: 'open source' | 'partly open source' | 'coming soon'
+  status: 'released' | 'open source' | 'partly open source' | 'coming soon'
   tags: string[]
   href?: string
   linkLabel?: string
@@ -82,7 +82,7 @@ export const SERVICES: Service[] = [
   },
 ]
 
-// Products we are releasing — nothing here has shipped yet.
+// Products we are releasing; DeepWater is the first one out.
 export const FEATURED: Featured[] = [
   { name: 'Nessie', tag: 'the European Slack alternative for an AI world', kind: 'Team chat + agents', status: 'open source',
     tags: ['Open source', 'Chat', 'Agents'], href: 'https://nessie.works', linkLabel: 'nessie.works', image: nessieScreen,
@@ -93,7 +93,7 @@ export const FEATURED: Featured[] = [
   { name: 'DeepTest', tag: 'security audits that bring evidence', kind: 'Security', status: 'coming soon',
     tags: ['Security', 'AI', 'Pentesting'], href: 'https://deeptest.live', linkLabel: 'deeptest.live', image: deeptestScreen,
     bg: '#16140F', accent: '#FF5C39', second: '#F4ECDB', type: 'web', variant: 2 },
-  { name: 'DeepWater', tag: 'deep research, cited claim by claim', kind: 'Research engine', status: 'coming soon',
+  { name: 'DeepWater', tag: 'deep research, cited claim by claim', kind: 'Research engine', status: 'released',
     tags: ['AI', 'Research', 'API'], href: 'https://deepwater.live', linkLabel: 'deepwater.live', image: deepwaterScreen,
     bg: '#F4B53A', accent: '#2B4DD9', second: '#FF5C39', type: 'web', variant: 1 },
   { name: 'SalesNerd', tag: 'prospect research with a source for every finding', kind: 'Sales intelligence', status: 'coming soon',
