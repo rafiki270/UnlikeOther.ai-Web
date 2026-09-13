@@ -71,7 +71,7 @@ export function Hero({ onSpark }: { onSpark: (e: ReactMouseEvent<HTMLElement>) =
 
         <div className="hero-sub">
           <p>
-            We&apos;re <b>UnlikeOther</b> — a multidisciplinary studio of designers,
+            We&apos;re <b>UnlikeOtherAI</b> — a multidisciplinary studio of designers,
             engineers and incurable tinkerers. We make SaaS products, mobile apps,
             and the occasional very strange AI thing.{' '}
             <span className="hand" style={{ color: 'var(--c1)', fontSize: 22 }}>— since 2019</span>
