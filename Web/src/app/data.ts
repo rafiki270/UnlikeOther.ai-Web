@@ -1,4 +1,10 @@
+import authenticatorScreen from '../assets/featured/authenticator.jpg'
+import deeptestScreen from '../assets/featured/deeptest.jpg'
+import deepwaterScreen from '../assets/featured/deepwater.jpg'
 import myrpgScreen from '../assets/featured/myrpg.jpg'
+import nessieScreen from '../assets/featured/nessie.jpg'
+import rememberNinjaScreen from '../assets/featured/remember-ninja.jpg'
+import salesnerdScreen from '../assets/featured/salesnerd.jpg'
 
 export type IconName = 'IconBrain' | 'IconCircuit' | 'IconPhone' | 'IconSpark' | 'IconBolt' | 'IconEye'
 
@@ -78,22 +84,22 @@ export const SERVICES: Service[] = [
 // Products we are releasing — nothing here has shipped yet.
 export const FEATURED: Featured[] = [
   { name: 'Nessie', tag: 'the European Slack alternative for an AI world', kind: 'Team chat + agents', status: 'open source',
-    tags: ['Open source', 'Chat', 'Agents'], href: 'https://nessie.works', linkLabel: 'nessie.works',
+    tags: ['Open source', 'Chat', 'Agents'], href: 'https://nessie.works', linkLabel: 'nessie.works', image: nessieScreen,
     bg: '#2B4DD9', accent: '#F4B53A', second: '#F4ECDB', type: 'web', variant: 0 },
   { name: 'Authenticator', tag: 'one login across all our products', kind: 'SSO · OAuth', status: 'open source',
-    tags: ['Open source', 'OAuth', '2FA'], href: 'https://github.com/UnlikeOtherAI/UnlikeOtherAuthenticator', linkLabel: 'github.com/UnlikeOtherAI',
+    tags: ['Open source', 'OAuth', '2FA'], href: 'https://github.com/UnlikeOtherAI/UnlikeOtherAuthenticator', linkLabel: 'github.com/UnlikeOtherAI', image: authenticatorScreen,
     bg: '#1F7A4D', accent: '#F4B53A', second: '#FF4FA3', type: 'web', variant: 3 },
   { name: 'DeepTest', tag: 'security audits that bring evidence', kind: 'Security', status: 'coming soon',
-    tags: ['Security', 'AI', 'Pentesting'], href: 'https://deeptest.live', linkLabel: 'deeptest.live',
+    tags: ['Security', 'AI', 'Pentesting'], href: 'https://deeptest.live', linkLabel: 'deeptest.live', image: deeptestScreen,
     bg: '#16140F', accent: '#FF5C39', second: '#F4ECDB', type: 'web', variant: 2 },
   { name: 'DeepWater', tag: 'deep research, cited claim by claim', kind: 'Research engine', status: 'coming soon',
-    tags: ['AI', 'Research', 'API'], href: 'https://deepwater.live', linkLabel: 'deepwater.live',
+    tags: ['AI', 'Research', 'API'], href: 'https://deepwater.live', linkLabel: 'deepwater.live', image: deepwaterScreen,
     bg: '#F4B53A', accent: '#2B4DD9', second: '#FF5C39', type: 'web', variant: 1 },
   { name: 'SalesNerd', tag: 'prospect research with a source for every finding', kind: 'Sales intelligence', status: 'coming soon',
-    tags: ['SaaS', 'AI', 'Sales'], href: 'https://salesnerd.live', linkLabel: 'salesnerd.live',
+    tags: ['SaaS', 'AI', 'Sales'], href: 'https://salesnerd.live', linkLabel: 'salesnerd.live', image: salesnerdScreen,
     bg: '#FF4FA3', accent: '#16140F', second: '#F4ECDB', type: 'web', variant: 0 },
   { name: 'Remember Ninja', tag: 'structured, searchable memory for AI agents', kind: 'Memory as a service', status: 'partly open source',
-    tags: ['AI agents', 'MCP', 'API'], href: 'https://remember.ninja', linkLabel: 'remember.ninja',
+    tags: ['AI agents', 'MCP', 'API'], href: 'https://remember.ninja', linkLabel: 'remember.ninja', image: rememberNinjaScreen,
     bg: '#2B4DD9', accent: '#FF4FA3', second: '#F4B53A', type: 'web', variant: 3 },
   { name: 'MyRPG', tag: 'a living world the AI keeps writing', kind: 'Multiplayer RPG', status: 'coming soon',
     tags: ['Game', 'AI agents', 'Mobile'], href: 'https://myrpg.world', linkLabel: 'myrpg.world', image: myrpgScreen,

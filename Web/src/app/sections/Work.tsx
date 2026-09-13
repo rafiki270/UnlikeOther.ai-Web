@@ -181,7 +181,10 @@ function FeatCard({ f, i }: { f: Featured; i: number }) {
                 : <AppScreen bg={f.bg} accent={f.accent} second={f.second} variant={f.variant} />}
             </PhoneFrame>
           )
-          : <WebScreen bg={f.bg} accent={f.accent} second={f.second} variant={f.variant} />}
+          : f.image
+            ? <img src={f.image} alt={`${f.name} website`} draggable={false}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+            : <WebScreen bg={f.bg} accent={f.accent} second={f.second} variant={f.variant} />}
       </div>
       <div className="tags">
         {f.tags.map((t) => <span key={t}>{t}</span>)}
