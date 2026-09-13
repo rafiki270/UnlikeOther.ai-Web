@@ -2,7 +2,9 @@
 
 ## Source Of Truth
 
-- Deployment and routing: `app.yaml`.
+- Deployment: `.github/workflows/deploy.yml` (push to `main` builds `Web/` and
+  rsyncs `Web/dist` to the shared server). `app.yaml` is the legacy DigitalOcean
+  App Platform spec and no longer serves the domain.
 - Web UI guidelines (when populated): `Web/guidelines/Guidelines.md`.
 
 ## Before You Start
@@ -14,7 +16,19 @@
 ## Project Layout
 
 - `Web/`: Vite + React static site. Build output is `Web/dist/`.
-- `app.yaml`: DigitalOcean App Platform config.
+- `.github/workflows/deploy.yml`: production deploy on push to `main`.
+- `app.yaml`: legacy DigitalOcean App Platform config (not live).
+
+## Hosting
+
+- `www.unlikeotherai.com` and `unlikeotherai.com` resolve (Cloudflare, DNS only)
+  to the shared server `178.105.82.46`, which also hosts nessie.works.
+- The Caddy edge (`/srv/infra/caddy/Caddyfile`) proxies both names to the
+  `unlikeother-web` container: `nginx:alpine` from
+  `/srv/unlikeother-web/docker-compose.yml`, serving `/srv/unlikeother-web/dist`.
+- The workflow's `DEPLOY_SSH_KEY` is restricted on the server to
+  `rrsync /srv/unlikeother-web/dist`. Secrets: `DEPLOY_SSH_KEY`,
+  `DEPLOY_KNOWN_HOSTS`, `DEPLOY_HOST`.
 
 ## UI + Auth Conventions
 
@@ -44,7 +58,8 @@
 ## Build + Launch
 
 - Web build command: `npm install && npm run build` (Vite). Output: `Web/dist/`.
-- Keep `app.yaml` aligned with the Web build output (`output_dir: dist`).
+- Keep the deploy workflow aligned with the Web build output (`Web/dist`).
+- Deploying is pushing to `main`; do not upload to the server by hand.
 
 ## Documentation Discipline
 
