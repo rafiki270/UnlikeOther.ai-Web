@@ -1,6 +1,7 @@
 import authenticatorScreen from '../assets/featured/authenticator.jpg'
 import deeptestScreen from '../assets/featured/deeptest.jpg'
 import deepwaterScreen from '../assets/featured/deepwater.jpg'
+import ledgerScreen from '../assets/featured/ledger.jpg'
 import myrpgScreen from '../assets/featured/myrpg.jpg'
 import nessieScreen from '../assets/featured/nessie.jpg'
 import rememberNinjaScreen from '../assets/featured/remember-ninja.jpg'
@@ -105,7 +106,7 @@ export const FEATURED: Featured[] = [
     tags: ['Game', 'AI agents', 'Mobile'], href: 'https://myrpg.world', linkLabel: 'myrpg.world', image: myrpgScreen,
     bg: '#FF5C39', accent: '#F4B53A', second: '#1F7A4D', type: 'phone', variant: 3 },
   { name: 'Ledger', tag: 'our own AI inference proxy', kind: 'AI infrastructure', status: 'coming soon',
-    tags: ['AI', 'Inference', 'Metering'],
+    tags: ['AI', 'Inference', 'Metering'], image: ledgerScreen,
     bg: '#F4ECDB', accent: '#FF5C39', second: '#2B4DD9', type: 'web', variant: 1 },
 ]
 
