@@ -3,7 +3,7 @@ import type { FormEvent } from 'react'
 import { Arrow, Star } from '../components/icons'
 import { CONTACT_EMAIL } from '../data'
 
-const INTEREST_OPTS = ['Mobile app', 'SaaS', 'AI feature', 'Brand & identity', 'A vibe check']
+const INTEREST_OPTS = ['Mobile app', 'SaaS', 'AI feature', 'Security audit', 'Brand & identity', 'A vibe check']
 const BUDGET_OPTS = ['< £25k', '£25–75k', '£75–150k', '£150k+']
 
 function Pill({ label, on, onClick }: { label: string; on: boolean; onClick: () => void }) {

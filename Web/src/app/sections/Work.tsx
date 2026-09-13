@@ -135,7 +135,7 @@ export function FeaturedCarousel() {
             <h2>some <em className="serif-em">good</em> ones we shipped lately.</h2>
           </div>
           <div className="h-side">
-            ← drag the strip, or use the buttons. there&apos;s 6 in here.
+            ← drag the strip, or use the buttons. there&apos;s 7 in here.
           </div>
         </div>
 

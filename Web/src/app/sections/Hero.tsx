@@ -124,7 +124,7 @@ export function Hero({ onSpark }: { onSpark: (e: ReactMouseEvent<HTMLElement>) =
 }
 
 const MARQUEE_WORDS = [
-  'SaaS', 'mobile apps', 'AI agents', 'identity', 'micro-sites',
+  'SaaS', 'mobile apps', 'AI agents', 'security audits', 'identity', 'micro-sites',
   'design systems', 'iOS', 'Android', 'product strategy', 'illustration',
 ]
 

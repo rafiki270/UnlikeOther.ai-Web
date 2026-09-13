@@ -73,14 +73,16 @@ export const SERVICES: Service[] = [
   },
   {
     n: '06',
-    title: 'Vibe checks & audits',
-    body: 'Bring us in to poke at an existing product. UX, perf, AI integration, the lot. You get a punchy memo, not a 90-slide deck.',
+    title: 'Serious security audits',
+    body: 'Authorized API pentests, source and PR security reviews, threat models. Every finding comes with evidence, a fix and a retest checklist. Powered by DeepTest.',
     icon: 'IconEye',
     color: 'var(--c1)',
   },
 ]
 
 export const FEATURED: Featured[] = [
+  { name: 'DeepTest', tag: 'security audits that bring receipts', kind: 'deeptest.live', year: '2026', tags: ['Security', 'AI', 'Pentesting'],
+    bg: '#16140F', accent: '#FF5C39', second: '#F4ECDB', type: 'web', variant: 2 },
   { name: 'Finchly', tag: 'AI bookkeeping that argues back', kind: 'iOS app', year: '2025', tags: ['Mobile', 'AI', 'Fintech'],
     bg: '#1F7A4D', accent: '#F4B53A', second: '#FF5C39', type: 'phone', variant: 1 },
   { name: 'Looplab', tag: 'a SaaS for video-first teams', kind: 'Web app', year: '2025', tags: ['SaaS', 'B2B', 'Video'],
