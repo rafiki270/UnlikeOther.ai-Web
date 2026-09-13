@@ -173,7 +173,14 @@ function FeatCard({ f, i }: { f: Featured; i: number }) {
       <div className="tagline">“{f.tag}”</div>
       <div className={`feat-screen ${f.type === 'web' ? 'web' : ''}`}>
         {f.type === 'phone'
-          ? <PhoneFrame><AppScreen bg={f.bg} accent={f.accent} second={f.second} variant={f.variant} /></PhoneFrame>
+          ? (
+            <PhoneFrame>
+              {f.image
+                ? <img src={f.image} alt={`${f.name} app screenshot`} draggable={false}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                : <AppScreen bg={f.bg} accent={f.accent} second={f.second} variant={f.variant} />}
+            </PhoneFrame>
+          )
           : <WebScreen bg={f.bg} accent={f.accent} second={f.second} variant={f.variant} />}
       </div>
       <div className="tags">

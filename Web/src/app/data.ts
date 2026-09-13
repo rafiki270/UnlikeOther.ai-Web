@@ -1,3 +1,5 @@
+import myrpgScreen from '../assets/featured/myrpg.jpg'
+
 export type IconName = 'IconBrain' | 'IconCircuit' | 'IconPhone' | 'IconSpark' | 'IconBolt' | 'IconEye'
 
 export interface Service {
@@ -16,6 +18,8 @@ export interface Featured {
   tags: string[]
   href?: string
   linkLabel?: string
+  /** Real screenshot shown instead of the sketched screen. */
+  image?: string
   bg: string
   accent: string
   second: string
@@ -92,7 +96,7 @@ export const FEATURED: Featured[] = [
     tags: ['AI agents', 'MCP', 'API'], href: 'https://remember.ninja', linkLabel: 'remember.ninja',
     bg: '#2B4DD9', accent: '#FF4FA3', second: '#F4B53A', type: 'web', variant: 3 },
   { name: 'MyRPG', tag: 'a living world the AI keeps writing', kind: 'Multiplayer RPG', status: 'coming soon',
-    tags: ['Game', 'AI agents', 'Mobile'], href: 'https://myrpg.world', linkLabel: 'myrpg.world',
+    tags: ['Game', 'AI agents', 'Mobile'], href: 'https://myrpg.world', linkLabel: 'myrpg.world', image: myrpgScreen,
     bg: '#FF5C39', accent: '#F4B53A', second: '#1F7A4D', type: 'phone', variant: 3 },
   { name: 'Ledger', tag: 'our own AI inference proxy', kind: 'AI infrastructure', status: 'coming soon',
     tags: ['AI', 'Inference', 'Metering'],
