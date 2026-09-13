@@ -12,7 +12,7 @@ export interface Featured {
   name: string
   tag: string
   kind: string
-  status: 'open source' | 'coming soon'
+  status: 'open source' | 'partly open source' | 'coming soon'
   tags: string[]
   href?: string
   linkLabel?: string
@@ -88,7 +88,7 @@ export const FEATURED: Featured[] = [
   { name: 'SalesNerd', tag: 'prospect research with a source for every finding', kind: 'Sales intelligence', status: 'coming soon',
     tags: ['SaaS', 'AI', 'Sales'], href: 'https://salesnerd.live', linkLabel: 'salesnerd.live',
     bg: '#FF4FA3', accent: '#16140F', second: '#F4ECDB', type: 'web', variant: 0 },
-  { name: 'Remember Ninja', tag: 'structured, searchable memory for AI agents', kind: 'Memory as a service', status: 'coming soon',
+  { name: 'Remember Ninja', tag: 'structured, searchable memory for AI agents', kind: 'Memory as a service', status: 'partly open source',
     tags: ['AI agents', 'MCP', 'API'], href: 'https://remember.ninja', linkLabel: 'remember.ninja',
     bg: '#2B4DD9', accent: '#FF4FA3', second: '#F4B53A', type: 'web', variant: 3 },
   { name: 'MyRPG', tag: 'a living world the AI keeps writing', kind: 'Multiplayer RPG', status: 'coming soon',

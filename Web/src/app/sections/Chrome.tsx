@@ -17,7 +17,7 @@ export function Nav({ onLogoClick }: { onLogoClick: (e: ReactMouseEvent<HTMLElem
             </svg>
           </div>
           <div className="logo-text">
-            UnlikeOther<br />
+            UnlikeOtherAI<br />
             <small>a tiny studio ✦</small>
           </div>
         </div>
