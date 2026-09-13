@@ -112,7 +112,7 @@ export function Hero({ onSpark }: { onSpark: (e: ReactMouseEvent<HTMLElement>) =
           </DraggableSticker>
           <DraggableSticker initial={{ x: 760, y: 520 }} rotate={-4}>
             <div className="sticker" style={{ background: 'var(--paper)' }}>
-              <Smiley size={20} /> studio of 9
+              <Smiley size={20} /> studio of 2+16
             </div>
           </DraggableSticker>
         </div>
