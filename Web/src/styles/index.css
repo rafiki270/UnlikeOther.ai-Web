@@ -187,6 +187,8 @@ body::before {
 .contact ul li a { color: inherit; text-decoration: none }
 .contact ul li .bullet { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
   border: 2px solid var(--ink); background: var(--c3); font-family: var(--f-mono); font-size: 13px; font-weight: 700 }
+.contact-email__prompt { display: inline-flex; align-items: center; gap: 6px; color: var(--c2); font-size: 24px; white-space: nowrap }
+.contact-email__prompt svg { flex: none }
 .form { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 22px; padding: 28px;
   box-shadow: 8px 8px 0 var(--ink); transform: rotate(.6deg); position: relative }
 .form .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px }
@@ -235,4 +237,6 @@ body.disco { animation: disco 1.2s linear infinite }
   .container { padding: 0 20px }
   .svc-grid, .proj-grid { grid-template-columns: 1fr }
   .hero h1 { font-size: 64px }
+  .contact-email { position: relative; padding-bottom: 42px }
+  .contact-email__prompt { position: absolute; top: 30px; left: 40px }
 }
