@@ -58,17 +58,17 @@ export function Contact() {
               we&apos;ll come back within 48hrs whether it&apos;s a fit or not.
             </p>
             <ul>
-              <li><span className="bullet">@</span> <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
+              <li className="contact-email">
+                <span className="bullet">@</span>
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                <span className="contact-email__prompt" aria-hidden="true">
+                  <Arrow style={{ transform: 'rotate(180deg)' }} color="var(--c2)" length={96} />
+                  <span className="hand">say hi!</span>
+                </span>
+              </li>
               <li><span className="bullet" style={{ background: 'var(--c1)' }}>↗</span> <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">github.com/UnlikeOtherAI</a></li>
               <li><span className="bullet" style={{ background: 'var(--c5)' }}>♥</span> Scotland &amp; Czech Republic, mostly.</li>
             </ul>
-
-            <div style={{ position: 'relative', height: 60, marginTop: 30 }}>
-              <Arrow style={{ position: 'absolute', left: 220, top: 0, transform: 'rotate(15deg)' }} color="var(--c2)" length={160} />
-              <span className="hand" style={{ fontSize: 24, color: 'var(--c2)', position: 'absolute', left: 380, top: 10 }}>
-                say hi!
-              </span>
-            </div>
           </div>
 
           <form className="form" onSubmit={onSubmit}>
