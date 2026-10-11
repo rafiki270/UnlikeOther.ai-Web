@@ -39,6 +39,15 @@ export function Footer() {
           <span className="hand" style={{ fontSize: 26, color: 'var(--c2)' }}>made by hand, mostly.</span>
           <Smiley color="var(--c1)" size={36} rotation={8} />
         </div>
+        <p className="footer-auth">
+          <a href="https://authentication.unlikeotherai.com">UnlikeOtherAuthenticator</a> is our shared
+          sign-in service: use an account to access connected products and manage your profile and team access.
+          Google sign-in uses your basic profile and email, with separate permission for other product connections.
+        </p>
+        <nav className="footer-legal" aria-label="Legal">
+          <a href="/privacy/">Privacy policy</a>
+          <a href="/terms/">Terms of service</a>
+        </nav>
         © {new Date().getFullYear()} UnlikeOtherAI studio · ★ try the Konami code ↑↑↓↓←→←→BA
       </div>
     </footer>
