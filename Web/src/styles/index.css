@@ -210,6 +210,11 @@ body::before {
 .foot { padding: 32px 0 48px; text-align: center; font-family: var(--f-mono); font-size: 12px;
   color: rgba(0,0,0,.6); position: relative; z-index: 2 }
 
+.footer-auth { max-width: 720px; margin: 20px auto; font-family: var(--f-sans); font-size: 15px; line-height: 1.6; color: var(--ink); }
+.footer-legal { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; margin: 20px 0; }
+.footer-auth a, .footer-legal a { color: var(--c2); text-underline-offset: 4px; }
+.footer-auth a:focus-visible, .footer-legal a:focus-visible { outline: 2px solid var(--c2); outline-offset: 4px; }
+
 /* marquee */
 .marquee { padding: 18px 0; border-top: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink);
   background: var(--c3); overflow: hidden; transform: rotate(-1.6deg); margin: 40px -40px; position: relative; z-index: 2 }
