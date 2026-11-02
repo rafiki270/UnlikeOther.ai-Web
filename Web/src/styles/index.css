@@ -324,6 +324,24 @@ body.disco { animation: disco 1.2s linear infinite }
 .lab-status { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; padding: 4px 10px;
   border: 2px solid var(--ink); border-radius: 999px; box-shadow: 2px 2px 0 var(--ink) }
 
+/* nessie forms (unstyled embeds dressed in our CSS) */
+.consent-row { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; font-weight: 400;
+  color: rgba(22,20,15,.75); cursor: pointer }
+.consent-row input { width: 18px; height: 18px; margin: 1px 0 0; flex: 0 0 auto; accent-color: var(--c2) }
+.response { margin: 14px 0 0; padding: 10px 14px; border: 2px solid var(--ink); border-radius: 10px;
+  font-size: 14.5px; font-weight: 600 }
+#nessie-error-response { background: #ffe3dc; color: #8f2d14 }
+#nessie-success-response { background: #e2f1e5; color: var(--c4) }
+.nessie_inline_error { border-color: var(--c1) !important }
+div.nessie_inline_error { margin: 6px 0 0; font-size: 13px; color: #8f2d14; border: 0 !important }
+.signup-row-inner { display: flex; flex-wrap: wrap; gap: 14px; align-items: stretch; position: relative }
+.signup-email { flex: 1 1 240px }
+.signup-email input { width: 100%; height: 100%; min-height: 50px; padding: 0 16px; font: inherit;
+  font-size: 16px; border: 2.5px solid var(--ink); border-radius: 999px; background: var(--paper) }
+.signup-email input:focus { outline: 3px solid var(--c2); outline-offset: 1px }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0 }
+
 /* kits cards */
 .kit-stack { display: flex; flex-direction: column; gap: 32px; padding: 40px 0 20px }
 .kit-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: start }
