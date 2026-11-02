@@ -1,13 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Squiggle, Star } from '../components/icons'
 import { LABS_PROJECTS } from '../data/labs'
-import {
-  SIGNUP_FORM_ACTION,
-  SIGNUP_FORM_CONFIG,
-  SIGNUP_FORM_ID,
-  SIGNUP_HONEYPOT,
-  useNessieForm,
-} from '../nessieForms'
 import { usePageMeta } from '../usePageMeta'
 
 const STATUS_BG: Record<string, string> = {
@@ -20,7 +13,6 @@ const STATUS_BG: Record<string, string> = {
 
 export default function LabsPage() {
   usePageMeta('Labs', 'Experimental tools from UnlikeOtherAI for people who build with AI agents — Kelpie, Wireframes, EWP, Electroscope, and the UnlikeOther Authenticator.')
-  useNessieForm(SIGNUP_FORM_CONFIG)
   return (
     <main>
       <section className="page-head">
@@ -104,43 +96,9 @@ export default function LabsPage() {
           </div>
           <p>
             Most Labs tools started as a problem on our own bench. If one of them is 80% of what you
-            need, talk to us about the other 20% — or leave your email and we&apos;ll write when
-            something new ships.
+            need, talk to us about the other 20%.
           </p>
-          <div id="nessie_embed_shell" style={{ flex: '1 1 100%' }}>
-            <div id="nessie_embed_signup" className="nessie-signup nessie-signup--unstyled" lang="en-GB">
-              <form
-                action={SIGNUP_FORM_ACTION}
-                method="post"
-                id="nessie-embedded-subscribe-form"
-                name="nessie-embedded-subscribe-form"
-                className="validate signup-row"
-                data-nessie-form={SIGNUP_FORM_ID}
-                target="_self"
-                noValidate
-              >
-                <div id="nessie_embed_signup_scroll" className="signup-row-inner">
-                  <div data-nessie-field="EMAIL" className="signup-email">
-                    <label htmlFor="nessie-EMAIL" className="sr-only">Email address</label>
-                    <input type="email" name="EMAIL" className="required email" id="nessie-EMAIL" required autoComplete="email" placeholder="you@somewhere.co" />
-                  </div>
-                  <div aria-hidden="true" style={{ position: 'absolute', left: -5000 }}>
-                    <input type="text" name={SIGNUP_HONEYPOT} tabIndex={-1} defaultValue="" autoComplete="off" />
-                  </div>
-                  <button type="submit" name="subscribe" id="nessie-embedded-subscribe" className="btn btn-blue">
-                    keep me posted →
-                  </button>
-                  <a className="feat-link" href="mailto:hello@unlikeotherai.com" style={{ alignSelf: 'center' }}>
-                    or email hello@unlikeotherai.com ↗
-                  </a>
-                  <div id="nessie-responses" className="clear" style={{ flex: '1 1 100%' }}>
-                    <div className="response" id="nessie-error-response" style={{ display: 'none' }} role="alert" />
-                    <div className="response" id="nessie-success-response" style={{ display: 'none' }} role="status" />
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+          <a className="btn btn-blue" href="mailto:hello@unlikeotherai.com">hello@unlikeotherai.com</a>
         </div>
       </section>
     </main>

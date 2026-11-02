@@ -1,6 +1,7 @@
 import type { MouseEvent as ReactMouseEvent } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Smiley } from '../components/icons'
+import { NewsletterSignup } from '../components/NewsletterSignup'
 import { NAV_LINKS } from '../data'
 import { PRODUCTS } from '../data/products'
 
@@ -49,6 +50,7 @@ export function Footer() {
   return (
     <footer className="foot">
       <div className="container">
+        <NewsletterSignup />
         <div style={{ display: 'flex', gap: 24, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginBottom: 12 }}>
           <Smiley size={36} rotation={-8} />
           <span className="hand" style={{ fontSize: 26, color: 'var(--c2)' }}>made by hand, mostly.</span>
