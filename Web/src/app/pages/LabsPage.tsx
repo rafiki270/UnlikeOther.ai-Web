@@ -1,14 +1,18 @@
+import { Link } from 'react-router-dom'
 import { Squiggle, Star } from '../components/icons'
 import { LABS_PROJECTS } from '../data/labs'
+import { usePageMeta } from '../usePageMeta'
 
 const STATUS_BG: Record<string, string> = {
   released: 'var(--c4)',
   'early access': 'var(--c2)',
   prototype: 'var(--c3)',
   experiment: 'var(--c5)',
+  'open source': 'var(--c4)',
 }
 
 export default function LabsPage() {
+  usePageMeta('Labs', 'Experimental tools from UnlikeOtherAI for people who build with AI agents — Kelpie, Wireframes, EWP, Electroscope, and the UnlikeOther Authenticator.')
   return (
     <main>
       <section className="page-head">
@@ -42,7 +46,11 @@ export default function LabsPage() {
             <div className="lab-grid">
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-                  <h2>{project.name}</h2>
+                  <h2>
+                    <Link to={`/labs/${project.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                      {project.name}
+                    </Link>
+                  </h2>
                   <span className="lab-status" style={{ background: STATUS_BG[project.status], color: 'var(--paper)' }}>
                     {project.status}
                   </span>
@@ -52,15 +60,32 @@ export default function LabsPage() {
                   <strong>Why it matters: </strong>
                   {project.why}
                 </p>
+                <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', marginTop: 14 }}>
+                  <Link className="feat-link" to={`/labs/${project.id}`} style={{ borderBottomColor: 'var(--c2)' }}>
+                    more about {project.name.split(' ')[0]} →
+                  </Link>
+                  {project.href && (
+                    <a className="feat-link" href={project.href} target="_blank" rel="noopener noreferrer">
+                      {project.linkLabel ?? project.href.replace(/^https?:\/\//, '')} ↗
+                    </a>
+                  )}
+                </div>
               </div>
-              <ul className="prod-high" style={{ marginTop: 4 }}>
-                {project.capabilities.map((capability) => (
-                  <li key={capability.slice(0, 32)}>
-                    <span className="tick" style={{ color: project.color }}>✦</span>
-                    <span>{capability}</span>
-                  </li>
-                ))}
-              </ul>
+              <div>
+                {project.image && (
+                  <div className="prod-screen">
+                    <img src={project.image} alt={`${project.name} screenshot`} draggable={false} />
+                  </div>
+                )}
+                <ul className="prod-high" style={{ marginTop: 4 }}>
+                  {project.capabilities.map((capability) => (
+                    <li key={capability.slice(0, 32)}>
+                      <span className="tick" style={{ color: project.color }}>✦</span>
+                      <span>{capability}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </article>
         ))}

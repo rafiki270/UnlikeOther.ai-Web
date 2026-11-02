@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import kidStoreScreen from '../../assets/featured/kid-store.jpg'
 import { Star } from '../components/icons'
 import { WebScreen } from '../components/screens'
 import { PRODUCTS } from '../data/products'
@@ -30,7 +31,9 @@ function ProductCard({ p, i }: { p: Product; i: number }) {
       <div className="prod-grid">
         <div>
           <div className="prod-head">
-            <h3>{p.name}</h3>
+            <h3>
+              <Link to={`/${p.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>{p.name}</Link>
+            </h3>
             <span className="prod-status" style={{ background: p.statusColor, color: 'var(--paper)' }}>
               {p.status}
             </span>
@@ -45,11 +48,16 @@ function ProductCard({ p, i }: { p: Product; i: number }) {
               <span key={t} className="mono" style={{ fontSize: 11, padding: '4px 10px', border: '1.5px solid var(--ink)', borderRadius: 999 }}>{t}</span>
             ))}
           </div>
-          {p.href && (
-            <a className="feat-link" href={p.href} target="_blank" rel="noopener noreferrer" style={{ marginTop: 16 }}>
-              {p.linkLabel} ↗
-            </a>
-          )}
+          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', marginTop: 16 }}>
+            <Link className="feat-link" to={`/${p.id}`} style={{ borderBottomColor: 'var(--c2)' }}>
+              more about {p.name} →
+            </Link>
+            {p.href && (
+              <a className="feat-link" href={p.href} target="_blank" rel="noopener noreferrer">
+                {p.linkLabel} ↗
+              </a>
+            )}
+          </div>
         </div>
         <div>
           <div className="prod-screen">
@@ -87,7 +95,10 @@ export function Products() {
           </div>
         </div>
         <div className="prod-stack">
-          {PRODUCTS.map((p, i) => <ProductCard key={p.id} p={p} i={i} />)}
+          {PRODUCTS.filter((p) => p.featured).map((p) => <ProductCard key={p.id} p={p} i={0} />)}
+          <div className="prod-masonry">
+            {PRODUCTS.filter((p) => !p.featured).map((p, i) => <ProductCard key={p.id} p={p} i={i + 1} />)}
+          </div>
         </div>
       </div>
     </section>
@@ -98,22 +109,31 @@ export function ExploreTeasers() {
   return (
     <div className="container">
       <div className="explore-grid">
-        <Link className="explore-card" to="/kits" style={{ transform: 'rotate(-.6deg)' }}>
+        <a
+          className="explore-card"
+          href="https://kids.unlikeotherai.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ transform: 'rotate(-.6deg)' }}
+        >
           <Star color="var(--c5)" size={28} rotation={-10} />
-          <h3>the kits →</h3>
+          <h3>for the kids →</h3>
           <p>
-            Smaller apps and games we release alongside the main products — racing on breakfast
-            tables, block building without the combat, pixel art without the ads. Signed, finished,
-            free.
+            We created these for our own kids — so when we go on holiday, we don&apos;t have to worry
+            about them being bombarded by adverts and in-app purchases. All the games are free, with
+            no ads, on both Android and iOS.
           </p>
-          <span className="go">/kits</span>
-        </Link>
+          <div className="explore-screen">
+            <img src={kidStoreScreen} alt="Kid Store website" draggable={false} />
+          </div>
+          <span className="go">kids.unlikeotherai.com ↗</span>
+        </a>
         <Link className="explore-card" to="/labs" style={{ transform: 'rotate(.6deg)' }}>
           <Star color="var(--c2)" size={28} rotation={12} />
           <h3>the labs →</h3>
           <p>
             Tools for people who build with AI agents: a microscope your agent can see through, a
-            Bluetooth keyboard for walls of phones, native-app testing over MCP, wireframes as YAML.
+            Bluetooth keyboard for walls of phones, a browser built for models, wireframes as YAML.
           </p>
           <span className="go">/labs</span>
         </Link>

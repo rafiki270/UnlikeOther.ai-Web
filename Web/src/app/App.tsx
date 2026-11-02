@@ -5,8 +5,9 @@ import { CursorTrail, useConfetti, useKonami } from './components/effects'
 import { Defs } from './components/icons'
 import { Footer, Nav } from './sections/Chrome'
 import HomePage from './pages/HomePage'
-import KitsPage from './pages/KitsPage'
 import LabsPage from './pages/LabsPage'
+import LabsProjectPage from './pages/LabsProjectPage'
+import ProductPage from './pages/ProductPage'
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -42,8 +43,9 @@ function Shell() {
       <Nav onLogoClick={spark} />
       <Routes>
         <Route path="/" element={<HomePage onSpark={spark} />} />
-        <Route path="/kits" element={<KitsPage />} />
         <Route path="/labs" element={<LabsPage />} />
+        <Route path="/labs/:slug" element={<LabsProjectPage />} />
+        <Route path="/:slug" element={<ProductPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />

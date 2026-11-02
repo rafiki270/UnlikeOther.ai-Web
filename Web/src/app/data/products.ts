@@ -1,5 +1,9 @@
+import deepwaterArchiveScreen from '../../assets/featured/deepwater-archive.jpg'
 import deepwaterScreen from '../../assets/featured/deepwater.jpg'
+import fermenteaMapScreen from '../../assets/featured/fermentea-map.jpg'
+import fermenteaRecipesScreen from '../../assets/featured/fermentea-recipes.jpg'
 import fermenteaScreen from '../../assets/featured/fermentea.jpg'
+import ledgerScreen from '../../assets/featured/ledger.jpg'
 import nessieScreen from '../../assets/featured/nessie.jpg'
 
 export interface Product {
@@ -16,6 +20,8 @@ export interface Product {
   href?: string
   linkLabel?: string
   image?: string
+  /** Additional screenshots for the product page gallery. */
+  images?: string[]
   /** Sketch colors used when there is no screenshot yet. */
   sketch?: { bg: string; accent: string; second: string; variant: number }
   featured?: boolean
@@ -26,8 +32,9 @@ export const PRODUCTS: Product[] = [
     id: 'nessie',
     name: 'Nessie',
     kind: 'Team chat + agents',
-    status: 'open source',
-    statusColor: 'var(--c4)',
+    status: 'private beta',
+    statusColor: 'var(--c2)',
+    featured: true,
     color: 'var(--c2)',
     tagline: 'the European Slack alternative for an AI world',
     description: [
@@ -47,14 +54,14 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'deepwater',
-    name: 'DeepWater',
+    name: 'Deep Water',
     kind: 'Research engine',
     status: 'released',
     statusColor: 'var(--c4)',
     color: 'var(--c3)',
     tagline: 'deep research, cited claim by claim',
     description: [
-      'DeepWater is deep-research infrastructure: a pipeline that scopes a question, gathers sources in 83 languages, synthesises a report, and then verifies it — every citation is read back against its source, and claims that don’t hold are dropped before you ever see them. Conflicting sources are reported, not averaged.',
+      'Deep Water is deep-research infrastructure: a pipeline that scopes a question, gathers sources in 83 languages, synthesises a report, and then verifies it — every citation is read back against its source, and claims that don’t hold are dropped before you ever see them. Conflicting sources are reported, not averaged.',
       'Four depth tiers run from a quick answer to everything we can find, with a time estimate up front. Use it from the web workspace, the REST API with webhooks, the CLI, or as an MCP server your agents call directly. Published reports live in a free public archive; private research is yours alone.',
     ],
     highlights: [
@@ -68,6 +75,28 @@ export const PRODUCTS: Product[] = [
     href: 'https://deepwater.live',
     linkLabel: 'deepwater.live',
     image: deepwaterScreen,
+    images: [deepwaterArchiveScreen],
+  },
+  {
+    id: 'ledger',
+    name: 'Ledger',
+    kind: 'AI infrastructure',
+    status: 'coming soon',
+    statusColor: 'var(--c3)',
+    color: 'var(--c1)',
+    tagline: 'our own AI inference proxy',
+    description: [
+      'Ledger is for any product that resells AI: a proxy router that sits between your app and the model providers. Every request flows through it, so you can see exactly which tokens each customer consumed — and, when your customers have customers of their own, meter those too.',
+      'Instead of guessing what your AI features cost per account, you get accurate, per-customer token accounting you can bill against, with one place to monitor usage across providers and models.',
+    ],
+    highlights: [
+      'Drop-in proxy between your product and AI model providers',
+      'Token metering per customer — and per your customers’ customers',
+      'Accurate consumption data to charge from, not estimates',
+      'One view of AI usage across your products',
+    ],
+    tags: ['AI', 'Inference', 'Metering'],
+    image: ledgerScreen,
   },
   {
     id: 'fermentea',
@@ -77,7 +106,6 @@ export const PRODUCTS: Product[] = [
     statusColor: 'var(--c4)',
     color: 'var(--c4)',
     tagline: 'where food goes to change',
-    featured: true,
     description: [
       'Fermentea is a free, source-linked reference to the world’s fermented, cured, and smoked foods — kombucha, yes, but also cheese, salami, garum, kimchi, koji, breads, beer, cider, and wine. Hundreds of recipes and articles, growing toward ten thousand, every one keeping its sources down to the exact YouTube timestamp.',
       'Reading is free, with no account and no paywall. Each recipe carries a 1–5 difficulty rating broken down by temperature control, monitoring, equipment, timing, and batch scaling, with food-safety warnings sitting next to the steps they belong to. Browse by search, filters, or a map that goes from world to locality using real boundaries — and never invents a precise “birthplace” pin.',
@@ -94,5 +122,7 @@ export const PRODUCTS: Product[] = [
     href: 'https://fermentea.live',
     linkLabel: 'fermentea.live',
     image: fermenteaScreen,
+    images: [fermenteaRecipesScreen, fermenteaMapScreen],
   },
 ]
+

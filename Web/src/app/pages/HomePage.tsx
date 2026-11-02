@@ -2,9 +2,11 @@ import type { MouseEvent as ReactMouseEvent } from 'react'
 import { Contact } from '../sections/Contact'
 import { Hero, Marquee } from '../sections/Hero'
 import { CustomBanner, ExploreTeasers, Products } from '../sections/Products'
-import { FeaturedCarousel, Services } from '../sections/Work'
+import { Services } from '../sections/Work'
+import { usePageMeta } from '../usePageMeta'
 
 export default function HomePage({ onSpark }: { onSpark: (e: ReactMouseEvent<HTMLElement>) => void }) {
+  usePageMeta()
   return (
     <>
       <CustomBanner />
@@ -12,7 +14,6 @@ export default function HomePage({ onSpark }: { onSpark: (e: ReactMouseEvent<HTM
       <Marquee />
       <Products />
       <ExploreTeasers />
-      <FeaturedCarousel />
       <Services />
       <Contact />
     </>

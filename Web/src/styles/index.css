@@ -245,7 +245,14 @@ body.disco { animation: disco 1.2s linear infinite }
 .prod-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 22px;
   padding: 30px; box-shadow: 8px 8px 0 var(--ink); position: relative }
 .prod-card.featured { border-width: 3.5px; box-shadow: 12px 12px 0 var(--ink); background: var(--paper-2) }
-.prod-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 36px; align-items: start }
+.prod-grid { display: grid; grid-template-columns: 1fr; gap: 26px; align-items: start }
+.prod-masonry > * { margin-bottom: 40px }
+.prod-masonry > *:last-child { margin-bottom: 0 }
+@media (min-width: 1000px) {
+  .prod-card.featured .prod-grid { grid-template-columns: 1.15fr .85fr; gap: 36px }
+  .prod-masonry { columns: 2; column-gap: 40px }
+  .prod-masonry > * { break-inside: avoid; margin-bottom: 40px !important; display: inline-block; width: 100% }
+}
 .prod-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap }
 .prod-head h3 { font-family: var(--f-display); font-weight: 400; font-size: clamp(36px,4.5vw,58px);
   margin: 0; line-height: .95 }
@@ -273,6 +280,10 @@ body.disco { animation: disco 1.2s linear infinite }
 .explore-card p { margin: 0; font-size: 15.5px; line-height: 1.5; color: rgba(22,20,15,.8) }
 .explore-card .go { font-family: var(--f-mono); font-size: 13px; font-weight: 700; display: inline-block;
   margin-top: 14px; border-bottom: 2px solid var(--c1) }
+.explore-screen { border: 2.5px solid var(--ink); border-radius: 14px; overflow: hidden;
+  background: var(--paper-2); box-shadow: 4px 4px 0 var(--ink); transform: rotate(.8deg);
+  margin-top: 18px; aspect-ratio: 2/1 }
+.explore-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block }
 
 /* subpage head */
 .page-head { padding: 44px 0 6px; position: relative }
@@ -282,11 +293,26 @@ body.disco { animation: disco 1.2s linear infinite }
   color: rgba(22,20,15,.82) }
 .page-head .sub p { margin: 0 0 12px }
 
+/* detail pages */
+.detail-body { padding-top: 30px; padding-bottom: 100px }
+.detail-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start }
+.detail-h { font-family: var(--f-display); font-weight: 400; font-size: clamp(28px,3.4vw,40px);
+  margin: 34px 0 12px; line-height: .95 }
+.detail-main .body { font-size: 17px; line-height: 1.6; color: rgba(22,20,15,.85); margin: 0 0 14px;
+  max-width: 62ch }
+.detail-hero { aspect-ratio: auto; margin-bottom: 8px }
+.detail-side { display: flex; flex-direction: column; gap: 28px }
+.detail-shot { aspect-ratio: auto }
+@media (min-width: 1000px) {
+  .detail-grid { grid-template-columns: 1.6fr .8fr; gap: 48px }
+}
+
 /* labs cards */
-.lab-stack { display: flex; flex-direction: column; gap: 36px; padding: 40px 0 60px }
-.lab-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 22px; padding: 28px;
-  box-shadow: 8px 8px 0 var(--ink); position: relative }
-.lab-card .lab-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: start }
+.lab-stack { display: flex; flex-direction: column; gap: 44px; padding: 40px 0 60px;
+  max-width: 1120px; margin: 0 auto }
+.lab-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 22px;
+  padding: 32px 36px; box-shadow: 8px 8px 0 var(--ink); position: relative }
+.lab-card .lab-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: start }
 .lab-card h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(30px,3.6vw,44px);
   margin: 0; line-height: .95 }
 .lab-card p { font-size: 16px; line-height: 1.55; color: rgba(22,20,15,.85); margin: 14px 0 0 }
