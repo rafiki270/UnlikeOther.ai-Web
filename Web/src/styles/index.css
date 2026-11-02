@@ -231,7 +231,7 @@ body.disco { animation: disco 1.2s linear infinite }
 @keyframes disco { 0% { filter: hue-rotate(0deg) } 100% { filter: hue-rotate(360deg) } }
 
 /* custom work banner */
-.custom-banner { margin: 22px 0 0; position: relative; z-index: 2 }
+.custom-banner { margin: 22px auto 0; position: relative; z-index: 2 }
 .custom-banner-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
   background: var(--paper); border: 2.5px solid var(--ink); border-radius: 18px; padding: 20px 26px;
   box-shadow: 6px 6px 0 var(--ink); transform: rotate(-.4deg); position: relative }
