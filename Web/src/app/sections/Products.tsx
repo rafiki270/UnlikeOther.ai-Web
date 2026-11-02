@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import kidStoreScreen from '../../assets/featured/kid-store.jpg'
+import labsArt from '../../assets/labs-art.png'
 import { Star } from '../components/icons'
 import { WebScreen } from '../components/screens'
 import { PRODUCTS } from '../data/products'
@@ -108,6 +109,17 @@ export function Products() {
 export function ExploreTeasers() {
   return (
     <div className="container">
+      <div className="section-head" style={{ paddingTop: 10 }}>
+        <div>
+          <span className="eyebrow">
+            <span className="mono" style={{ color: 'var(--ink)' }}>§ 02½</span> · the other stuff
+          </span>
+          <h2>the <em className="serif-em">other</em> stuff.</h2>
+        </div>
+        <div className="h-side">
+          not everything we make is a product. some of it is for our kids, some of it is for our bench.
+        </div>
+      </div>
       <div className="explore-grid">
         <a
           className="explore-card"
@@ -135,6 +147,7 @@ export function ExploreTeasers() {
             Tools for people who build with AI agents: a microscope your agent can see through, a
             Bluetooth keyboard for walls of phones, a browser built for models, wireframes as YAML.
           </p>
+          <img className="explore-art" src={labsArt} alt="Doodles of lab gear: a USB microscope, a phone, an ESP32 board, a soldering iron" loading="lazy" draggable={false} />
           <span className="go">/labs</span>
         </Link>
       </div>
