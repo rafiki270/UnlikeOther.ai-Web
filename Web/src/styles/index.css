@@ -72,6 +72,7 @@ body::before {
   text-decoration: none; padding: 8px 14px; border-radius: 999px;
   transition: background .15s, transform .15s }
 .nav-links a:hover { background: var(--ink); color: var(--paper); transform: rotate(-2deg) }
+.nav-links a[aria-current="page"] { background: var(--ink); color: var(--paper) }
 .nav-cta { background: var(--c2) !important; color: var(--paper) !important; border: 2px solid var(--ink);
   box-shadow: 3px 3px 0 var(--ink) }
 .nav-cta:hover { transform: rotate(2deg) translate(-1px,-1px) !important; box-shadow: 4px 4px 0 var(--ink) !important; background: var(--c2) !important }
@@ -322,6 +323,18 @@ body.disco { animation: disco 1.2s linear infinite }
 .lab-card p { font-size: 16px; line-height: 1.55; color: rgba(22,20,15,.85); margin: 14px 0 0 }
 .lab-status { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; padding: 4px 10px;
   border: 2px solid var(--ink); border-radius: 999px; box-shadow: 2px 2px 0 var(--ink) }
+
+/* registered company details */
+.company-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 64px }
+.company-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 18px;
+  padding: 24px 26px; box-shadow: 5px 5px 0 var(--ink) }
+.company-card h3 { font-family: var(--f-display); font-weight: 400; font-size: 30px; line-height: 1; margin: 0 0 6px }
+.company-card .where { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase;
+  letter-spacing: .06em; color: rgba(22,20,15,.65) }
+.company-card dl { margin: 16px 0 0; display: grid; gap: 12px }
+.company-card dt { font-family: var(--f-mono); font-size: 12px; color: rgba(22,20,15,.65); margin-bottom: 2px }
+.company-card dd { margin: 0; font-size: 16px; line-height: 1.45 }
+@media (max-width: 640px) { .company-cards { grid-template-columns: 1fr; margin-top: 48px } }
 
 /* nessie forms (unstyled embeds dressed in our CSS) */
 .consent-row { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; font-weight: 400;

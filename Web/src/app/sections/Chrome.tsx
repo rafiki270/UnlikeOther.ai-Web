@@ -1,9 +1,17 @@
 import type { MouseEvent as ReactMouseEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Smiley } from '../components/icons'
 import { NAV_LINKS } from '../data'
+import { PRODUCTS } from '../data/products'
+
+function isCurrentPage(href: string, pathname: string) {
+  if (href === '/labs') return pathname === '/labs' || pathname.startsWith('/labs/')
+  if (href === '/#products') return PRODUCTS.some((p) => pathname === `/${p.id}`)
+  return false
+}
 
 export function Nav({ onLogoClick }: { onLogoClick: (e: ReactMouseEvent<HTMLElement>) => void }) {
+  const { pathname } = useLocation()
   return (
     <nav className="nav">
       <div className="container nav-inner">
@@ -25,7 +33,11 @@ export function Nav({ onLogoClick }: { onLogoClick: (e: ReactMouseEvent<HTMLElem
         </div>
         </Link>
         <div className="nav-links">
-          {NAV_LINKS.map((l) => <Link key={l.label} to={l.href}>{l.label}</Link>)}
+          {NAV_LINKS.map((l) => (
+            <Link key={l.label} to={l.href} aria-current={isCurrentPage(l.href, pathname) ? 'page' : undefined}>
+              {l.label}
+            </Link>
+          ))}
           <Link className="nav-cta" to="/#contact">start a project →</Link>
         </div>
       </div>

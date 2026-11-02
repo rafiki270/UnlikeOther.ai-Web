@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Arrow } from '../components/icons'
-import { CONTACT_EMAIL, GITHUB_URL } from '../data'
+import { COMPANIES, CONTACT_EMAIL, GITHUB_URL } from '../data'
 import {
   CONTACT_FORM_ACTION,
   CONTACT_FORM_CONFIG,
@@ -34,14 +34,11 @@ export function Contact() {
     setInterests((cur) => (cur.includes(o) ? cur.filter((x) => x !== o) : [...cur, o]))
 
   // The pills travel inside MESSAGE; the Nessie form only knows name/email/message.
-  const composedMessage = [
+  const projectDetails = [
     interests.length ? `What kind of thing: ${interests.join(', ')}` : '',
     budget ? `Budget: ${budget}` : '',
-    interests.length || budget ? '' : null,
-    message,
-  ]
-    .filter((line) => line !== null)
-    .join('\n')
+  ].filter(Boolean).join('\n')
+  const composedMessage = [projectDetails, message].filter(Boolean).join('\n\n')
 
   return (
     <section className="contact" id="contact">
@@ -134,6 +131,24 @@ export function Contact() {
               </form>
             </div>
           </div>
+        </div>
+        <div className="company-cards">
+          {COMPANIES.map((company) => (
+            <article className="company-card" key={company.number}>
+              <h3>{company.name}</h3>
+              <div className="where">{company.where}</div>
+              <dl>
+                <div>
+                  <dt>{company.numberLabel}</dt>
+                  <dd>{company.number}</dd>
+                </div>
+                <div>
+                  <dt>Registered office</dt>
+                  <dd>{company.office.map((line) => <div key={line}>{line}</div>)}</dd>
+                </div>
+              </dl>
+            </article>
+          ))}
         </div>
       </div>
     </section>

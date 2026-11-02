@@ -9,8 +9,8 @@ export default function HomePage({ onSpark }: { onSpark: (e: ReactMouseEvent<HTM
   usePageMeta()
   return (
     <>
-      <CustomBanner />
       <Hero onSpark={onSpark} />
+      <CustomBanner />
       <Marquee />
       <Products />
       <ExploreTeasers />

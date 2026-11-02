@@ -3,8 +3,7 @@ import { useEffect } from 'react'
 /**
  * Nessie (nessie.works) hosted forms — the team's Clients section receives
  * every submission. The embed script does inline validation, the anti-bot
- * proof of work, and in-place success/error messages; without it the form
- * still works as a plain POST to the same endpoint.
+ * proof of work, and in-place success/error messages, so submissions depend on it.
  */
 export const NESSIE_EMBED_SRC = 'https://api.nessie.works/api/newsletter/embed.js'
 

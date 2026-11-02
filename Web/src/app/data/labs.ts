@@ -98,8 +98,8 @@ export const LABS_PROJECTS: LabsProject[] = [
     name: 'Electroscope',
     status: 'released',
     color: 'var(--c4)',
-    image: electroscopeScreen,
-    images: [electroscopeAgentScreen],
+    image: electroscopeAgentScreen,
+    images: [electroscopeScreen],
     what: 'A desktop app for USB electronics microscopes with an MCP server built in. You see the live board; your AI agent sees the same image, takes full-resolution snapshots, and draws on the view you are both looking at.',
     why: 'Hardware debugging with an agent breaks down the moment it cannot see the board. Electroscope lets the agent point at the exact pin or test point — circle it, box it, label it — instead of describing it in prose while you squint.',
     capabilities: [

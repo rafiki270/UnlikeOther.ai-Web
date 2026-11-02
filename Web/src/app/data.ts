@@ -57,6 +57,23 @@ export const SERVICES: Service[] = [
   },
 ]
 
+export const COMPANIES = [
+  {
+    name: 'UnlikeOtherAI s.r.o.',
+    where: 'Registered in the Czech Republic',
+    numberLabel: 'Company number (IČO)',
+    number: '30001641',
+    office: ['Pod Borováčkem 168, Myšlín', '251 64 Mnichovice', 'Czech Republic'],
+  },
+  {
+    name: 'UnlikeOtherAI Ltd',
+    where: 'Registered in Scotland',
+    numberLabel: 'Company number',
+    number: 'SC892114',
+    office: ['Braeview, California', 'Falkirk, FK1 2DH', 'Scotland'],
+  },
+]
+
 export const NAV_LINKS = [
   { label: 'products', href: '/#products' },
   { label: 'labs', href: '/labs' },
