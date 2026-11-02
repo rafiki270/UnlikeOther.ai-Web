@@ -327,7 +327,7 @@ body.disco { animation: disco 1.2s linear infinite }
 .consent-row { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; font-weight: 400;
   color: rgba(22,20,15,.75); cursor: pointer }
 .consent-row input { width: 18px; height: 18px; margin: 1px 0 0; flex: 0 0 auto; accent-color: var(--c2) }
-.response { margin: 14px 0 0; padding: 10px 14px; border: 2px solid var(--ink); border-radius: 10px;
+.response { margin: 14px 0 18px; padding: 10px 14px; border: 2px solid var(--ink); border-radius: 10px;
   font-size: 14.5px; font-weight: 600 }
 #nessie-error-response { background: #ffe3dc; color: #8f2d14 }
 #nessie-success-response { background: #e2f1e5; color: var(--c4) }
