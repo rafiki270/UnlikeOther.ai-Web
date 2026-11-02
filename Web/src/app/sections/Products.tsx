@@ -41,7 +41,7 @@ function ProductCard({ p, i }: { p: Product; i: number }) {
           </div>
           <div className="prod-kind">{p.kind}</div>
           <div className="prod-tagline">“{p.tagline}”</div>
-          {p.description.map((paragraph) => (
+          {(p.summary ?? p.description).map((paragraph) => (
             <p className="body" key={paragraph.slice(0, 32)}>{paragraph}</p>
           ))}
           <div className="tags" style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>

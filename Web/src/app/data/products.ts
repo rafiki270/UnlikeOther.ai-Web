@@ -15,6 +15,8 @@ export interface Product {
   color: string
   tagline: string
   description: string[]
+  /** Shorter copy for the home-page card; falls back to description. */
+  summary?: string[]
   highlights: string[]
   tags: string[]
   href?: string
@@ -110,6 +112,10 @@ export const PRODUCTS: Product[] = [
       'Fermentea is a free, source-linked reference to the world’s fermented, cured, and smoked foods — kombucha, yes, but also cheese, salami, garum, kimchi, koji, breads, beer, cider, and wine. Hundreds of recipes and articles, growing toward ten thousand, every one keeping its sources down to the exact YouTube timestamp.',
       'Reading is free, with no account and no paywall. Each recipe carries a 1–5 difficulty rating broken down by temperature control, monitoring, equipment, timing, and batch scaling, with food-safety warnings sitting next to the steps they belong to. Browse by search, filters, or a map that goes from world to locality using real boundaries — and never invents a precise “birthplace” pin.',
       'Beyond the library: seventeen DIY equipment build plans with 3D models, bills of materials, and cut lists in metric and imperial — biltong box, cider press, koji incubator, curing chamber, smokehouses modelled on historical designs. A moderated community for batch photos, ratings, and corrections. Translation into 39 languages for signed-in readers, free.',
+    ],
+    summary: [
+      'A free, source-linked reference to the world’s fermented, cured, and smoked foods — kombucha, cheese, salami, kimchi, koji, breads, beer, and wine — every claim sourced down to the exact YouTube timestamp.',
+      'Free to read with no account or paywall, browsable by search, filters, or a real-boundary map, plus seventeen DIY equipment build plans with 3D models and cut lists.',
     ],
     highlights: [
       'Web, iPhone & iPad, and Android — apps on their way to the stores',
