@@ -1,7 +1,11 @@
 import authenticatorScreen from '../../assets/featured/authenticator.jpg'
+import electroscopeAgentScreen from '../../assets/labs/electroscope-agent.jpg'
 import electroscopeScreen from '../../assets/labs/electroscope.jpg'
+import ewpPhoneScreen from '../../assets/labs/ewp-phone.jpg'
 import ewpScreen from '../../assets/labs/ewp.jpg'
+import kelpiePhoneScreen from '../../assets/labs/kelpie-phone.jpg'
 import kelpieScreen from '../../assets/labs/kelpie.jpg'
+import wireframesLineScreen from '../../assets/labs/wireframes-line.jpg'
 import wireframesScreen from '../../assets/labs/wireframes.jpg'
 
 export interface LabsProject {
@@ -26,6 +30,7 @@ export const LABS_PROJECTS: LabsProject[] = [
     status: 'released',
     color: 'var(--c2)',
     image: kelpieScreen,
+    images: [kelpiePhoneScreen],
     href: 'https://unlikeotherai.github.io/kelpie',
     linkLabel: 'kelpie on GitHub',
     what: 'A browser built for language models: native iOS, Android, and macOS browser apps plus a Node CLI that let models control real browsers on real devices over HTTP and MCP.',
@@ -44,6 +49,7 @@ export const LABS_PROJECTS: LabsProject[] = [
     status: 'experiment',
     color: 'var(--c5)',
     image: wireframesScreen,
+    images: [wireframesLineScreen],
     what: 'Wireframe prototypes written as YAML. A spec file becomes a clickable, deliberately unstyled prototype — same input, same output, every time. Comes with a CLI, an API, and an online editor with an AI chat panel.',
     why: 'Wireframes as text means wireframes you can diff, review, validate, and version like code — and that an LLM can generate or edit reliably. No more screenshots of whiteboards in your ticket history.',
     capabilities: [
@@ -59,6 +65,7 @@ export const LABS_PROJECTS: LabsProject[] = [
     status: 'prototype',
     color: 'var(--c1)',
     image: ewpScreen,
+    images: [ewpPhoneScreen],
     what: 'An ESP32 board that pairs with phones and tablets as a Bluetooth keyboard and mouse, controlled over MCP. A companion iOS app streams the screen back to the agent while other apps are in the foreground.',
     why: 'Real devices, real Bluetooth input, no jailbreak, no cloud device farm, no computer in the middle. An agent can drive any app or system screen on a physical phone — and with a rack of boards, a whole wall of them.',
     capabilities: [
@@ -92,6 +99,7 @@ export const LABS_PROJECTS: LabsProject[] = [
     status: 'released',
     color: 'var(--c4)',
     image: electroscopeScreen,
+    images: [electroscopeAgentScreen],
     what: 'A desktop app for USB electronics microscopes with an MCP server built in. You see the live board; your AI agent sees the same image, takes full-resolution snapshots, and draws on the view you are both looking at.',
     why: 'Hardware debugging with an agent breaks down the moment it cannot see the board. Electroscope lets the agent point at the exact pin or test point — circle it, box it, label it — instead of describing it in prose while you squint.',
     capabilities: [
