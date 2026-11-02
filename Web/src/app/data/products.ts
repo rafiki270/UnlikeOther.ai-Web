@@ -1,4 +1,5 @@
 import deepwaterScreen from '../../assets/featured/deepwater.jpg'
+import fermenteaScreen from '../../assets/featured/fermentea.jpg'
 import nessieScreen from '../../assets/featured/nessie.jpg'
 
 export interface Product {
@@ -22,26 +23,6 @@ export interface Product {
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'studio',
-    name: 'unlikeotherai.com',
-    kind: 'The studio itself',
-    status: 'you are here',
-    statusColor: 'var(--c3)',
-    color: 'var(--c1)',
-    tagline: 'two decades of shipping, now building its own things',
-    description: [
-      "UnlikeOtherAI is a tiny product studio in Scotland and the Czech Republic. We've spent 20+ years shipping software for global brands — automotive, retail, media, health, enterprise — and now we put that experience into products we own end to end: design, engineering, infrastructure, and the support inbox.",
-      'We use AI as a force multiplier, not a crutch: fast prototyping and iteration, with senior-level architecture and decision-making kept firmly human. Fewer products, built properly, for the long term.',
-    ],
-    highlights: [
-      'EU & UK based — we operate under EU & UK law, including GDPR',
-      'Everything we ship is signed, maintained, and run by the people who built it',
-      'The same team takes on a handful of client projects a quarter',
-    ],
-    tags: ['Studio', 'Scotland', 'Czechia'],
-    sketch: { bg: '#FF5C39', accent: '#F4B53A', second: '#F4ECDB', variant: 1 },
-  },
-  {
     id: 'nessie',
     name: 'Nessie',
     kind: 'Team chat + agents',
@@ -58,7 +39,6 @@ export const PRODUCTS: Product[] = [
       'AI employees with versioned instructions, searchable knowledge, and delegation',
       'Connected computers: agents work on real machines through the Nessie executor',
       'Web, desktop (macOS, Windows, Linux), iOS, and Android — self-hosting documented',
-      "€3 per person/month on Cloud; AI employees don't take a seat",
     ],
     tags: ['Open source', 'Chat', 'Agents'],
     href: 'https://nessie.works',
@@ -82,7 +62,7 @@ export const PRODUCTS: Product[] = [
       'Sources in 83 languages, including scanned PDFs via OCR',
       'Seven writing styles — regenerate the same evidence as scientific, executive, or plain',
       'API, CLI, web workspace, and MCP server for agents',
-      'Pay per run from a shared team credit pot — no seats',
+      'Free public research archive — published reports are open to read',
     ],
     tags: ['AI', 'Research', 'API'],
     href: 'https://deepwater.live',
@@ -108,11 +88,11 @@ export const PRODUCTS: Product[] = [
       'Every claim sourced; no recipe pretends to be professionally reviewed',
       'Map browsing with real country and regional boundaries',
       '17 DIY build plans: 3D models, BOMs, cut lists, metric & imperial',
-      'Supporter tier at £2/€2/$2 a month — all published content stays free',
+      'Free to read — no account, no paywall, no ads',
     ],
     tags: ['Food', 'Reference', 'iOS', 'Android', 'Web'],
     href: 'https://fermentea.live',
     linkLabel: 'fermentea.live',
-    sketch: { bg: '#1F7A4D', accent: '#F4B53A', second: '#F4ECDB', variant: 1 },
+    image: fermenteaScreen,
   },
 ]

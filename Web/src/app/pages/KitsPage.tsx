@@ -1,5 +1,5 @@
-import { Smiley, Squiggle, Star } from '../components/icons'
-import { KIDS_APPS, KITS } from '../data/kits'
+import { Smiley, Star } from '../components/icons'
+import { KITS } from '../data/kits'
 
 export default function KitsPage() {
   return (
@@ -27,39 +27,34 @@ export default function KitsPage() {
         {KITS.map((kit, i) => (
           <article key={kit.id} className="kit-card" style={{ transform: `rotate(${i % 2 === 0 ? -0.6 : 0.6}deg)` }}>
             <span className="tape" style={{ top: -12, left: 30 + ((i * 11) % 40), transform: `rotate(${i % 2 ? 6 : -6}deg)` }} />
-            <h2>{kit.name}</h2>
-            <div className="plat">{kit.platform}</div>
-            {kit.description.map((paragraph) => (
-              <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-            ))}
-            {kit.url && (
-              <a className="feat-link" href={kit.url} target="_blank" rel="noopener noreferrer" style={{ marginTop: 14 }}>
-                {kit.url.replace(/^https?:\/\//, '')} ↗
-              </a>
-            )}
+            <div className={`kit-grid ${kit.imageKind === 'phone' ? 'kit-grid-phone' : ''}`}>
+              <div>
+                <h2>{kit.name}</h2>
+                <div className="plat">{kit.platform}</div>
+                {kit.description.map((paragraph) => (
+                  <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+                ))}
+                {kit.url && (
+                  <a className="feat-link" href={kit.url} target="_blank" rel="noopener noreferrer" style={{ marginTop: 14 }}>
+                    {kit.url.replace(/^https?:\/\//, '')} ↗
+                  </a>
+                )}
+              </div>
+              {kit.image && (
+                <div className={`kit-screen ${kit.imageKind === 'phone' ? 'phone' : ''}`}>
+                  <img src={kit.image} alt={`${kit.name} screenshot`} draggable={false} />
+                </div>
+              )}
+            </div>
           </article>
         ))}
-      </section>
 
-      <div className="container">
-        <Squiggle color="var(--c5)" />
-      </div>
-
-      <section className="container">
-        <div className="section-head">
-          <div>
-            <span className="eyebrow">
-              <span className="mono" style={{ color: 'var(--ink)' }}>§ 02</span> · for the small people
-            </span>
-            <h2>kids&apos; games, <em className="serif-em">ad-free</em>.</h2>
-          </div>
-          <div className="h-side">
-            made because the alternatives were full of ads. ours aren&apos;t. <Smiley size={28} rotation={8} />
-          </div>
-        </div>
-        <article className="kit-card" style={{ transform: 'rotate(-.4deg)', marginBottom: 28 }}>
+        <article className="kit-card" style={{ transform: 'rotate(-.4deg)' }}>
           <span className="tape" style={{ top: -12, left: 46, transform: 'rotate(5deg)' }} />
-          <h2>kid store</h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
+            <h2>for the kids</h2>
+            <Smiley size={32} rotation={8} />
+          </div>
           <div className="plat">Android · iOS</div>
           <p>
             We created these for our own kids — so when we go on holiday, we don&apos;t have to worry
@@ -70,15 +65,9 @@ export default function KitsPage() {
             kids.unlikeotherai.com ↗
           </a>
         </article>
-        <div className="kids-grid">
-          {KIDS_APPS.map((app, i) => (
-            <div key={app.id} className="kids-card" style={{ transform: `rotate(${(i % 3) - 1}deg)` }}>
-              <h3>{app.name}</h3>
-              <p>{app.blurb}</p>
-            </div>
-          ))}
-        </div>
       </section>
+
+      <div style={{ paddingBottom: 60 }} />
     </main>
   )
 }
