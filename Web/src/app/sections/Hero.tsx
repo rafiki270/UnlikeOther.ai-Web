@@ -167,7 +167,7 @@ export function Hero({ onSpark }: { onSpark: (e: ReactMouseEvent<HTMLElement>) =
           </DraggableSticker>
         </div>
 
-        <Squiggle color="var(--c4)" style={{ marginTop: 40 }} />
+        <Squiggle color="var(--c4)" style={{ marginTop: 40, marginBottom: 0 }} />
       </div>
     </section>
   )
