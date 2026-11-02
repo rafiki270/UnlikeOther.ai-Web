@@ -1,0 +1,65 @@
+# Builds Web/ and syncs Web/dist to the unlikeother-web nginx container on the
+# shared server (behind the Caddy edge). The deploy key is locked to that folder
+# with rrsync, so it can only write /srv/unlikeother-web/dist.
+name: Deploy website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Web/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-website
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Web/package-lock.json
+
+      - name: Build
+        working-directory: Web
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+
+      - name: Configure SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Sync to server
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          rsync -rltz --delete --delay-updates \
+            -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" \
+            Web/dist/ "root@${DEPLOY_HOST}:"
+
+      - name: Verify live site
+        run: |
+          bundle=$(grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' Web/dist/index.html)
+          for attempt in 1 2 3 4 5; do
+            if curl -fsSL https://www.unlikeotherai.com | grep -q "$bundle"; then
+              echo "Live: $bundle"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "www.unlikeotherai.com is not serving $bundle" >&2
+          exit 1

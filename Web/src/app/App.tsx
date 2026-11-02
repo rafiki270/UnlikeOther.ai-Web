@@ -1,46 +1,31 @@
-import { useEffect } from 'react';
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import DoodleLayer from './components/site/DoodleLayer';
-import SiteNav from './components/site/SiteNav';
-import SiteFooter from './components/site/SiteFooter';
-import HomePage from './pages/HomePage';
-import KitsPage from './pages/KitsPage';
-import LabsPage from './pages/LabsPage';
-
-function ScrollManager() {
-  const { pathname, hash } = useLocation();
-
-  useEffect(() => {
-    if (hash) {
-      const target = document.getElementById(hash.slice(1));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-    }
-    window.scrollTo(0, 0);
-  }, [pathname, hash]);
-
-  return null;
-}
+import type { MouseEvent as ReactMouseEvent } from 'react'
+import { CursorTrail, useConfetti, useKonami } from './components/effects'
+import { Defs } from './components/icons'
+import { Footer, Nav } from './sections/Chrome'
+import { Contact } from './sections/Contact'
+import { Hero, Marquee } from './sections/Hero'
+import { FeaturedCarousel, Services } from './sections/Work'
 
 export default function App() {
+  const burst = useConfetti()
+  useKonami()
+
+  const spark = (e: ReactMouseEvent<HTMLElement>) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    burst(r.left + r.width / 2, r.top + r.height / 2)
+  }
+
   return (
-    <BrowserRouter>
-      <ScrollManager />
-      <div className="min-h-screen bg-[#1E1B1C] text-white overflow-x-hidden relative">
-        <DoodleLayer />
-        <div className="relative z-10">
-          <SiteNav />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/kits" element={<KitsPage />} />
-            <Route path="/labs" element={<LabsPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-          <SiteFooter />
-        </div>
-      </div>
-    </BrowserRouter>
-  );
+    <>
+      <Defs />
+      <CursorTrail />
+      <Nav onLogoClick={spark} />
+      <Hero onSpark={spark} />
+      <Marquee />
+      <Services />
+      <FeaturedCarousel />
+      <Contact />
+      <Footer />
+    </>
+  )
 }
