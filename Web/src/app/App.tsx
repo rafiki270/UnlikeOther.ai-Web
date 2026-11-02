@@ -1,12 +1,31 @@
+import { useEffect } from 'react'
 import type { MouseEvent as ReactMouseEvent } from 'react'
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { CursorTrail, useConfetti, useKonami } from './components/effects'
 import { Defs } from './components/icons'
 import { Footer, Nav } from './sections/Chrome'
-import { Contact } from './sections/Contact'
-import { Hero, Marquee } from './sections/Hero'
-import { FeaturedCarousel, Services } from './sections/Work'
+import HomePage from './pages/HomePage'
+import KitsPage from './pages/KitsPage'
+import LabsPage from './pages/LabsPage'
 
-export default function App() {
+function ScrollManager() {
+  const { pathname, hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const target = document.getElementById(hash.slice(1))
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
+    }
+    window.scrollTo(0, 0)
+  }, [pathname, hash])
+
+  return null
+}
+
+function Shell() {
   const burst = useConfetti()
   useKonami()
 
@@ -19,13 +38,23 @@ export default function App() {
     <>
       <Defs />
       <CursorTrail />
+      <ScrollManager />
       <Nav onLogoClick={spark} />
-      <Hero onSpark={spark} />
-      <Marquee />
-      <Services />
-      <FeaturedCarousel />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<HomePage onSpark={spark} />} />
+        <Route path="/kits" element={<KitsPage />} />
+        <Route path="/labs" element={<LabsPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
       <Footer />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Shell />
+    </BrowserRouter>
   )
 }

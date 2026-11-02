@@ -1,9 +1,7 @@
 import authenticatorScreen from '../assets/featured/authenticator.jpg'
 import deeptestScreen from '../assets/featured/deeptest.jpg'
-import deepwaterScreen from '../assets/featured/deepwater.jpg'
 import ledgerScreen from '../assets/featured/ledger.jpg'
 import myrpgScreen from '../assets/featured/myrpg.jpg'
-import nessieScreen from '../assets/featured/nessie.jpg'
 import rememberNinjaScreen from '../assets/featured/remember-ninja.jpg'
 import salesnerdScreen from '../assets/featured/salesnerd.jpg'
 
@@ -82,20 +80,14 @@ export const SERVICES: Service[] = [
   },
 ]
 
-// Products we are releasing; DeepWater is the first one out.
+// Smaller things on the workbench; the main products live in data/products.ts.
 export const FEATURED: Featured[] = [
-  { name: 'Nessie', tag: 'the European Slack alternative for an AI world', kind: 'Team chat + agents', status: 'open source',
-    tags: ['Open source', 'Chat', 'Agents'], href: 'https://nessie.works', linkLabel: 'nessie.works', image: nessieScreen,
-    bg: '#2B4DD9', accent: '#F4B53A', second: '#F4ECDB', type: 'web', variant: 0 },
   { name: 'Authenticator', tag: 'one login across all our products', kind: 'SSO · OAuth', status: 'open source',
     tags: ['Open source', 'OAuth', '2FA'], href: 'https://github.com/UnlikeOtherAI/UnlikeOtherAuthenticator', linkLabel: 'github.com/UnlikeOtherAI', image: authenticatorScreen,
     bg: '#1F7A4D', accent: '#F4B53A', second: '#FF4FA3', type: 'web', variant: 3 },
   { name: 'DeepTest', tag: 'security audits that bring evidence', kind: 'Security', status: 'coming soon',
     tags: ['Security', 'AI', 'Pentesting'], href: 'https://deeptest.live', linkLabel: 'deeptest.live', image: deeptestScreen,
     bg: '#16140F', accent: '#FF5C39', second: '#F4ECDB', type: 'web', variant: 2 },
-  { name: 'DeepWater', tag: 'deep research, cited claim by claim', kind: 'Research engine', status: 'released',
-    tags: ['AI', 'Research', 'API'], href: 'https://deepwater.live', linkLabel: 'deepwater.live', image: deepwaterScreen,
-    bg: '#F4B53A', accent: '#2B4DD9', second: '#FF5C39', type: 'web', variant: 1 },
   { name: 'SalesNerd', tag: 'prospect research with a source for every finding', kind: 'Sales intelligence', status: 'coming soon',
     tags: ['SaaS', 'AI', 'Sales'], href: 'https://salesnerd.live', linkLabel: 'salesnerd.live', image: salesnerdScreen,
     bg: '#FF4FA3', accent: '#16140F', second: '#F4ECDB', type: 'web', variant: 0 },
@@ -111,7 +103,9 @@ export const FEATURED: Featured[] = [
 ]
 
 export const NAV_LINKS = [
-  { label: 'work', href: '#work' },
-  { label: 'services', href: '#services' },
-  { label: 'contact', href: '#contact' },
+  { label: 'products', href: '/#products' },
+  { label: 'kits', href: '/kits' },
+  { label: 'labs', href: '/labs' },
+  { label: 'services', href: '/#services' },
+  { label: 'contact', href: '/#contact' },
 ]

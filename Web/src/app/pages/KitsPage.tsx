@@ -1,81 +1,84 @@
-import { KIDS_APPS, KITS } from '../data/kits';
+import { Smiley, Squiggle, Star } from '../components/icons'
+import { KIDS_APPS, KITS } from '../data/kits'
 
 export default function KitsPage() {
   return (
     <main>
-      {/* Intro */}
-      <section className="container mx-auto px-6 py-16 md:py-24 max-w-[1280px]">
-        <div className="max-w-3xl space-y-6">
-          <div className="uppercase tracking-widest text-[#9A9496] text-xs md:text-sm">Kits</div>
-          <h1
-            className="text-4xl md:text-6xl leading-[1.15] tracking-tight"
-            style={{ fontWeight: 800, letterSpacing: '-0.02em' }}
-          >
-            Small, finished tools. <span className="text-[#F3A6C8]">Shipped often.</span>
+      <section className="page-head">
+        <div className="container">
+          <span className="eyebrow">
+            <span className="mono" style={{ color: 'var(--ink)' }}>§ 01</span> · the kits
+          </span>
+          <h1>
+            small things, <em className="serif-em">finished</em> properly.
+            <Star color="var(--c5)" size={34} rotation={-12} style={{ marginLeft: 16 }} />
           </h1>
-          <p className="text-[#CFC9CB] text-lg md:text-xl leading-relaxed">
-            Kits are the smaller apps and utilities we release alongside our main products — each one
-            built properly, signed, and maintained. No subscriptions bolted onto things that don't need
-            them.
-          </p>
+          <div className="sub">
+            <p>
+              Kits are the smaller apps and games we release alongside the main products — each one
+              built properly, signed, and maintained. No ads bolted on, no subscriptions on things
+              that don&apos;t need them.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Kits with write-ups */}
-      <section className="container mx-auto px-6 pb-8 max-w-[1280px]">
-        <div className="space-y-8">
-          {KITS.map((kit) => (
-            <article
-              key={kit.id}
-              className="rounded-2xl border border-white/10 bg-[#242021] p-8 md:p-10"
-            >
-              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-3">
-                <h2 className="text-2xl md:text-3xl" style={{ fontWeight: 700 }}>
-                  {kit.name}
-                </h2>
-                <span className="text-sm text-[#9A9496] uppercase tracking-wider">{kit.platform}</span>
-              </div>
-              <div className="space-y-3 text-[#CFC9CB] text-lg leading-relaxed max-w-3xl">
-                {kit.description.map((paragraph) => (
-                  <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-                ))}
-              </div>
-              {kit.url && (
-                <a
-                  href={kit.url}
-                  className="mt-5 inline-block text-[#6FB7FF] hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {kit.url.replace(/^https?:\/\//, '')} →
-                </a>
-              )}
-            </article>
-          ))}
-        </div>
+      <section className="container kit-stack">
+        {KITS.map((kit, i) => (
+          <article key={kit.id} className="kit-card" style={{ transform: `rotate(${i % 2 === 0 ? -0.6 : 0.6}deg)` }}>
+            <span className="tape" style={{ top: -12, left: 30 + ((i * 11) % 40), transform: `rotate(${i % 2 ? 6 : -6}deg)` }} />
+            <h2>{kit.name}</h2>
+            <div className="plat">{kit.platform}</div>
+            {kit.description.map((paragraph) => (
+              <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+            ))}
+            {kit.url && (
+              <a className="feat-link" href={kit.url} target="_blank" rel="noopener noreferrer" style={{ marginTop: 14 }}>
+                {kit.url.replace(/^https?:\/\//, '')} ↗
+              </a>
+            )}
+          </article>
+        ))}
       </section>
 
-      {/* Kids' apps — compact grid, no write-ups */}
-      <section className="container mx-auto px-6 py-16 max-w-[1280px]">
-        <div className="max-w-3xl space-y-4 mb-10">
-          <h2 className="text-3xl md:text-4xl tracking-tight" style={{ fontWeight: 800 }}>
-            For the small people
-          </h2>
-          <p className="text-[#CFC9CB] text-lg leading-relaxed">
-            We also make a growing set of apps for kids — simple, ad‑free, and safe by design.
-          </p>
+      <div className="container">
+        <Squiggle color="var(--c5)" />
+      </div>
+
+      <section className="container">
+        <div className="section-head">
+          <div>
+            <span className="eyebrow">
+              <span className="mono" style={{ color: 'var(--ink)' }}>§ 02</span> · for the small people
+            </span>
+            <h2>kids&apos; games, <em className="serif-em">ad-free</em>.</h2>
+          </div>
+          <div className="h-side">
+            made because the alternatives were full of ads. ours aren&apos;t. <Smiley size={28} rotation={8} />
+          </div>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {KIDS_APPS.map((app) => (
-            <div key={app.id} className="rounded-2xl border border-white/10 bg-[#242021] p-6">
-              <h3 className="text-xl mb-1" style={{ fontWeight: 700 }}>
-                {app.name}
-              </h3>
-              <p className="text-[#9A9496]">{app.blurb}</p>
+        <article className="kit-card" style={{ transform: 'rotate(-.4deg)', marginBottom: 28 }}>
+          <span className="tape" style={{ top: -12, left: 46, transform: 'rotate(5deg)' }} />
+          <h2>kid store</h2>
+          <div className="plat">Android · iOS</div>
+          <p>
+            We created these for our own kids — so when we go on holiday, we don&apos;t have to worry
+            about them being bombarded by adverts and in-app purchases. All the games are free, with
+            no ads, on both Android and iOS.
+          </p>
+          <a className="feat-link" href="https://kids.unlikeotherai.com" target="_blank" rel="noopener noreferrer" style={{ marginTop: 14 }}>
+            kids.unlikeotherai.com ↗
+          </a>
+        </article>
+        <div className="kids-grid">
+          {KIDS_APPS.map((app, i) => (
+            <div key={app.id} className="kids-card" style={{ transform: `rotate(${(i % 3) - 1}deg)` }}>
+              <h3>{app.name}</h3>
+              <p>{app.blurb}</p>
             </div>
           ))}
         </div>
       </section>
     </main>
-  );
+  )
 }

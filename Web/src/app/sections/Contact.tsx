@@ -47,7 +47,7 @@ export function Contact() {
       <div className="container">
         <div className="contact-grid">
           <div>
-            <span className="eyebrow mono" style={{ color: 'var(--c2)' }}>§ 04 · start a project</span>
+            <span className="eyebrow mono" style={{ color: 'var(--c2)' }}>§ 05 · start a project</span>
             <div className="sub">drop us a line — we&apos;re kind</div>
             <h2>
               got something <em className="serif-em" style={{ color: 'var(--c1)' }}>strange</em>

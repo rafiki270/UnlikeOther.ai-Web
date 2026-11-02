@@ -1,4 +1,5 @@
 import type { MouseEvent as ReactMouseEvent } from 'react'
+import { Link } from 'react-router-dom'
 import { Smiley } from '../components/icons'
 import { NAV_LINKS } from '../data'
 
@@ -6,6 +7,7 @@ export function Nav({ onLogoClick }: { onLogoClick: (e: ReactMouseEvent<HTMLElem
   return (
     <nav className="nav">
       <div className="container nav-inner">
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div className="logo" onClick={onLogoClick}>
           <div className="logo-mark">
             <svg viewBox="0 0 32 32" aria-hidden="true">
@@ -21,9 +23,10 @@ export function Nav({ onLogoClick }: { onLogoClick: (e: ReactMouseEvent<HTMLElem
             <small>a tiny studio ✦</small>
           </div>
         </div>
+        </Link>
         <div className="nav-links">
-          {NAV_LINKS.map((l) => <a key={l.label} href={l.href}>{l.label}</a>)}
-          <a className="nav-cta" href="#contact">start a project →</a>
+          {NAV_LINKS.map((l) => <Link key={l.label} to={l.href}>{l.label}</Link>)}
+          <Link className="nav-cta" to="/#contact">start a project →</Link>
         </div>
       </div>
     </nav>

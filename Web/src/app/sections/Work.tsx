@@ -19,7 +19,7 @@ export function Services() {
         <div className="section-head">
           <div>
             <span className="eyebrow">
-              <span className="mono" style={{ color: 'var(--ink)' }}>§ 02</span> · what we do
+              <span className="mono" style={{ color: 'var(--ink)' }}>§ 04</span> · what we do
             </span>
             <h2>a small studio with a <em className="serif-em">big toolkit</em></h2>
           </div>
@@ -133,10 +133,10 @@ export function FeaturedCarousel() {
             <span className="eyebrow">
               <span className="mono" style={{ color: 'var(--ink)' }}>§ 03</span> · on the workbench
             </span>
-            <h2>stuff we&apos;re <em className="serif-em">releasing</em> soon.</h2>
+            <h2>also on the <em className="serif-em">workbench</em>.</h2>
           </div>
           <div className="h-side">
-            ← drag the strip, or use the buttons. there&apos;s {FEATURED.length} in here, some already open source.
+            ← drag the strip, or use the buttons. there&apos;s {FEATURED.length} more in here, some already open source.
           </div>
         </div>
 

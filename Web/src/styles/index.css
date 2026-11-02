@@ -230,6 +230,84 @@ body::before {
 body.disco { animation: disco 1.2s linear infinite }
 @keyframes disco { 0% { filter: hue-rotate(0deg) } 100% { filter: hue-rotate(360deg) } }
 
+/* custom work banner */
+.custom-banner { margin: 22px 0 0; position: relative; z-index: 2 }
+.custom-banner-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  background: var(--paper); border: 2.5px solid var(--ink); border-radius: 18px; padding: 20px 26px;
+  box-shadow: 6px 6px 0 var(--ink); transform: rotate(-.4deg); position: relative }
+.custom-banner-inner .lead { font-family: var(--f-display); font-size: 26px; line-height: 1.05 }
+.custom-banner-inner p { margin: 0; flex: 1 1 320px; font-size: 16px; line-height: 1.45; color: rgba(22,20,15,.8) }
+.custom-banner-inner .btn { flex: none }
+
+/* product write-ups */
+.products { padding: 70px 0 10px }
+.prod-stack { display: flex; flex-direction: column; gap: 40px }
+.prod-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 22px;
+  padding: 30px; box-shadow: 8px 8px 0 var(--ink); position: relative }
+.prod-card.featured { border-width: 3.5px; box-shadow: 12px 12px 0 var(--ink); background: var(--paper-2) }
+.prod-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 36px; align-items: start }
+.prod-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap }
+.prod-head h3 { font-family: var(--f-display); font-weight: 400; font-size: clamp(36px,4.5vw,58px);
+  margin: 0; line-height: .95 }
+.prod-kind { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase;
+  letter-spacing: .06em; color: rgba(0,0,0,.55) }
+.prod-status { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; padding: 4px 10px;
+  border: 2px solid var(--ink); border-radius: 999px; box-shadow: 2px 2px 0 var(--ink); background: var(--c3) }
+.prod-tagline { font-family: var(--f-hand); font-size: 27px; color: var(--c2); margin: 6px 0 14px }
+.prod-card p.body { font-size: 16px; line-height: 1.55; color: rgba(22,20,15,.85); margin: 0 0 14px }
+.prod-high { list-style: none; margin: 0; padding: 18px 20px; border: 2px dashed var(--ink);
+  border-radius: 16px; background: rgba(255,255,255,.4); display: flex; flex-direction: column; gap: 10px }
+.prod-high li { display: flex; gap: 10px; font-size: 14.5px; line-height: 1.45 }
+.prod-high li .tick { font-family: var(--f-mono); font-weight: 700; flex: none }
+.prod-screen { border: 2.5px solid var(--ink); border-radius: 16px; overflow: hidden; aspect-ratio: 4/3;
+  background: var(--paper-2); box-shadow: 5px 5px 0 var(--ink); transform: rotate(1deg); margin-bottom: 20px }
+.prod-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block }
+
+/* kits + labs teasers */
+.explore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; padding: 30px 0 50px }
+.explore-card { display: block; background: var(--paper); border: 2.5px solid var(--ink); border-radius: 20px;
+  padding: 26px 28px; box-shadow: 6px 6px 0 var(--ink); text-decoration: none; color: var(--ink);
+  position: relative; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .2s }
+.explore-card:hover { transform: translate(-3px,-3px) rotate(-1deg); box-shadow: 10px 10px 0 var(--ink) }
+.explore-card h3 { font-family: var(--f-display); font-weight: 400; font-size: 40px; margin: 10px 0 10px; line-height: .95 }
+.explore-card p { margin: 0; font-size: 15.5px; line-height: 1.5; color: rgba(22,20,15,.8) }
+.explore-card .go { font-family: var(--f-mono); font-size: 13px; font-weight: 700; display: inline-block;
+  margin-top: 14px; border-bottom: 2px solid var(--c1) }
+
+/* subpage head */
+.page-head { padding: 44px 0 6px; position: relative }
+.page-head h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(56px,9vw,130px);
+  line-height: .9; margin: 10px 0 20px; letter-spacing: -.01em }
+.page-head .sub { font-family: var(--f-sans); font-size: 19px; line-height: 1.5; max-width: 62ch;
+  color: rgba(22,20,15,.82) }
+.page-head .sub p { margin: 0 0 12px }
+
+/* labs cards */
+.lab-stack { display: flex; flex-direction: column; gap: 36px; padding: 40px 0 60px }
+.lab-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 22px; padding: 28px;
+  box-shadow: 8px 8px 0 var(--ink); position: relative }
+.lab-card .lab-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: start }
+.lab-card h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(30px,3.6vw,44px);
+  margin: 0; line-height: .95 }
+.lab-card p { font-size: 16px; line-height: 1.55; color: rgba(22,20,15,.85); margin: 14px 0 0 }
+.lab-status { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; padding: 4px 10px;
+  border: 2px solid var(--ink); border-radius: 999px; box-shadow: 2px 2px 0 var(--ink) }
+
+/* kits cards */
+.kit-stack { display: flex; flex-direction: column; gap: 32px; padding: 40px 0 20px }
+.kit-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 22px; padding: 28px;
+  box-shadow: 8px 8px 0 var(--ink); position: relative }
+.kit-card h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(30px,3.6vw,44px);
+  margin: 0; line-height: .95 }
+.kit-card .plat { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase;
+  letter-spacing: .06em; color: rgba(0,0,0,.55) }
+.kit-card p { font-size: 16px; line-height: 1.55; color: rgba(22,20,15,.85); margin: 14px 0 0 }
+.kids-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; padding: 10px 0 70px }
+.kids-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 18px; padding: 20px;
+  box-shadow: 5px 5px 0 var(--ink) }
+.kids-card h3 { font-family: var(--f-display); font-weight: 400; font-size: 24px; margin: 0 0 8px; line-height: 1 }
+.kids-card p { margin: 0; font-size: 14px; line-height: 1.45; color: rgba(22,20,15,.75) }
+
 /* small screens */
 @media (max-width: 900px) {
   .svc-grid { grid-template-columns: 1fr 1fr }
@@ -237,6 +315,9 @@ body.disco { animation: disco 1.2s linear infinite }
   .contact-grid { grid-template-columns: 1fr }
   .feat-card { width: 300px }
   .nav-links a:not(.nav-cta) { display: none }
+  .prod-grid, .lab-card .lab-grid { grid-template-columns: 1fr }
+  .explore-grid { grid-template-columns: 1fr }
+  .kids-grid { grid-template-columns: 1fr 1fr }
 }
 @media (max-width: 560px) {
   .container { padding: 0 20px }
@@ -244,4 +325,7 @@ body.disco { animation: disco 1.2s linear infinite }
   .hero h1 { font-size: 64px }
   .contact-email { position: relative; padding-bottom: 42px }
   .contact-email__prompt { position: absolute; top: 30px; left: 40px }
+  .kids-grid { grid-template-columns: 1fr }
+  .custom-banner-inner { padding: 18px 20px }
+  .prod-card, .lab-card, .kit-card { padding: 22px }
 }
