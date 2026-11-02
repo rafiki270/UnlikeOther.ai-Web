@@ -308,11 +308,15 @@ body.disco { animation: disco 1.2s linear infinite }
 }
 
 /* labs cards */
-.lab-stack { display: flex; flex-direction: column; gap: 44px; padding: 40px 0 60px;
-  max-width: 1120px; margin: 0 auto }
+.lab-stack { padding: 40px 0 60px; max-width: 1120px; margin: 0 auto }
+.lab-stack > * { margin-bottom: 44px }
+.lab-stack > *:last-child { margin-bottom: 0 }
+@media (min-width: 1000px) {
+  .lab-stack { columns: 2; column-gap: 44px }
+  .lab-stack > * { break-inside: avoid; margin-bottom: 44px !important; display: inline-block; width: 100% }
+}
 .lab-card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 22px;
   padding: 32px 36px; box-shadow: 8px 8px 0 var(--ink); position: relative }
-.lab-card .lab-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: start }
 .lab-card h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(30px,3.6vw,44px);
   margin: 0; line-height: .95 }
 .lab-card p { font-size: 16px; line-height: 1.55; color: rgba(22,20,15,.85); margin: 14px 0 0 }
@@ -347,7 +351,7 @@ body.disco { animation: disco 1.2s linear infinite }
   .contact-grid { grid-template-columns: 1fr }
   .feat-card { width: 300px }
   .nav-links a:not(.nav-cta) { display: none }
-  .prod-grid, .lab-card .lab-grid, .kit-grid, .kit-grid-phone { grid-template-columns: 1fr }
+  .prod-grid, .kit-grid, .kit-grid-phone { grid-template-columns: 1fr }
   .explore-grid { grid-template-columns: 1fr }
   .kids-grid { grid-template-columns: 1fr 1fr }
 }

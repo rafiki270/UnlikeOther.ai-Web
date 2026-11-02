@@ -41,51 +41,45 @@ export default function LabsPage() {
 
       <section className="container lab-stack">
         {LABS_PROJECTS.map((project, i) => (
-          <article key={project.id} className="lab-card" style={{ transform: `rotate(${i % 2 === 0 ? -0.5 : 0.5}deg)` }}>
+          <article key={project.id} className="lab-card" style={{ transform: `rotate(${i % 2 === 0 ? -0.4 : 0.4}deg)` }}>
             <span className="tape" style={{ top: -12, left: 30 + ((i * 13) % 50), transform: `rotate(${i % 2 ? 7 : -6}deg)` }} />
-            <div className="lab-grid">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-                  <h2>
-                    <Link to={`/labs/${project.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                      {project.name}
-                    </Link>
-                  </h2>
-                  <span className="lab-status" style={{ background: STATUS_BG[project.status], color: 'var(--paper)' }}>
-                    {project.status}
-                  </span>
-                </div>
-                <p>{project.what}</p>
-                <p>
-                  <strong>Why it matters: </strong>
-                  {project.why}
-                </p>
-                <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', marginTop: 14 }}>
-                  <Link className="feat-link" to={`/labs/${project.id}`} style={{ borderBottomColor: 'var(--c2)' }}>
-                    more about {project.name.split(' ')[0]} →
-                  </Link>
-                  {project.href && (
-                    <a className="feat-link" href={project.href} target="_blank" rel="noopener noreferrer">
-                      {project.linkLabel ?? project.href.replace(/^https?:\/\//, '')} ↗
-                    </a>
-                  )}
-                </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
+              <h2>
+                <Link to={`/labs/${project.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  {project.name}
+                </Link>
+              </h2>
+              <span className="lab-status" style={{ background: STATUS_BG[project.status], color: 'var(--paper)' }}>
+                {project.status}
+              </span>
+            </div>
+            {project.image && (
+              <div className="prod-screen" style={{ marginTop: 18 }}>
+                <img src={project.image} alt={`${project.name} screenshot`} draggable={false} />
               </div>
-              <div>
-                {project.image && (
-                  <div className="prod-screen">
-                    <img src={project.image} alt={`${project.name} screenshot`} draggable={false} />
-                  </div>
-                )}
-                <ul className="prod-high" style={{ marginTop: 4 }}>
-                  {project.capabilities.map((capability) => (
-                    <li key={capability.slice(0, 32)}>
-                      <span className="tick" style={{ color: project.color }}>✦</span>
-                      <span>{capability}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            )}
+            <p>{project.what}</p>
+            <p>
+              <strong>Why it matters: </strong>
+              {project.why}
+            </p>
+            <ul className="prod-high" style={{ marginTop: 16 }}>
+              {project.capabilities.map((capability) => (
+                <li key={capability.slice(0, 32)}>
+                  <span className="tick" style={{ color: project.color }}>✦</span>
+                  <span>{capability}</span>
+                </li>
+              ))}
+            </ul>
+            <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', marginTop: 16 }}>
+              <Link className="feat-link" to={`/labs/${project.id}`} style={{ borderBottomColor: 'var(--c2)' }}>
+                more about {project.name.split(' ')[0]} →
+              </Link>
+              {project.href && (
+                <a className="feat-link" href={project.href} target="_blank" rel="noopener noreferrer">
+                  {project.linkLabel ?? project.href.replace(/^https?:\/\//, '')} ↗
+                </a>
+              )}
             </div>
           </article>
         ))}
