@@ -309,7 +309,7 @@ body.disco { animation: disco 1.2s linear infinite }
 }
 
 /* labs cards */
-.lab-stack { padding: 40px 14px 60px; max-width: 1148px; margin: 0 auto }
+.lab-stack { padding-top: 40px; padding-bottom: 60px; max-width: 1184px; margin: 0 auto }
 .lab-stack > * { margin-bottom: 44px }
 .lab-stack > *:last-child { margin-bottom: 0 }
 @media (min-width: 1000px) {
