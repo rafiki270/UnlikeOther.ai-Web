@@ -28,6 +28,7 @@ static_sites:
     source_dir: Web
     build_command: npm install && npm run build
     output_dir: dist
+    catchall_document: index.html
     github:
       repo: rafiki270/UnlikeOther.ai-Web
       branch: main
